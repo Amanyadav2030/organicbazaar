@@ -1,6 +1,7 @@
 #navbarLinks li{
     list-style: none;
     color: #475d4b;
+        z-index: 10; 
 }
 #navbarLinks>li{
   height: 47px;
@@ -44,6 +45,9 @@
     width: 100%; 
     left: 0; 
   }
+  #navbarAnim{
+    z-index: 10;
+  }
   svg{
     fill: #000;
     height: 2rem;
@@ -54,21 +58,26 @@
     height: 85px;
   }
 
-  header{
+  header{    
     display: flex;
-    width: 94vw;
+    width: 90vw;
+    justify-content: center;
     justify-content: space-between;
     align-items: center;
     border: 1px solid transparent;
     margin: auto;
-    padding: 20px 10px;
+    padding: 4px 7px;
   }
   #logos{
-    display:flex;
+    display: flex;
     gap: 15px;
+    border: 1px solid transparent;
+    width: 20rem;
+    justify-content: end;
+
   }
   input+svg{
-    position: relative;
+    position: relative ;
     width: 18px;
     fill: black;
     transform: rotate(83deg);
@@ -76,7 +85,11 @@
     top: 4px;
   }
   #logos + div{
-    display:flex;
+    
+    display: flex;
+    border: 1px solid transparent;
+    align-items: center;
+
   }
   input{
     padding: 0.45rem 1rem !important;
@@ -90,4 +103,78 @@
     width: 34px;
     stroke-width: 21px;
     stroke-width: 14px;
+}
+/* Carousel styles */
+#banner{
+  width:94%;
+  margin:20px auto;
+  /* padding: 20px 0px; */
+}
+.dot {
+  width: 10px !important;
+  height: 10px !important;
+  border: 2px solid #475d4b !important;
+  margin:0px 5px !important;
+}
+#banner .carousel-slider{
+  width: 100%;
+  
+  padding-bottom: 48px;
+}
+#banner img{
+  border-radius: 13px;
+  cursor:pointer !important;
+}
+#carouselLink{
+  cursor: pointer;
+}
+/* Crousel end  */
+
+#giftbox{
+  display: flex;
+  padding-bottom: 29px;
+  justify-content: center;
+}
+#giftbox img{
+  width: 94%;
+  border-radius: 13px;
+  cursor:pointer;
+}
+
+/* find solution carousel */
+
+#findSolution img{
+  width: 285px;
+  height: 266px;
+}
+#findSolution .carousel-slider{
+  padding-bottom: 37px;
+};
+#findSolution{
+  padding: 17px 12px;
+}
+#findSolution .slide{
+  cursor: pointer;
+}
+
+#mediaCarousel img{
+  width:206px;
+}
+#mediaCarousel{
+  cursor: pointer;
+}
+#media .carousel-slider{
+  padding-bottom: 35px;
+}
+/* end  */
+#trust,#bellaCash{
+  display: flex;
+  justify-content: center;
+}
+#trust img,#bellaCash img{
+  width: 94%;
+  border-radius: 5px;
+}
+#bellaCash img{
+  cursor: pointer;
 }

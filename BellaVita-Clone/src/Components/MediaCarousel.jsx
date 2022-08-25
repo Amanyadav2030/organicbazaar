@@ -1,14 +1,15 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link, useNavigate } from "react-router-dom";
-export default function MyCarousel({ items }) {
+export default function MediaCarousel({ items }) {
     const nav = useNavigate()
     return (
         <div className="Carousel">
             <Carousel
-                // autoPlay={true}
-                centerSlidePercentage={100}
+                autoPlay={true}
+                centerSlidePercentage={20}
                 infiniteLoop
+                centerMode
                 swipeable
                 showArrows={false}
                 showStatus={false}
@@ -21,7 +22,7 @@ export default function MyCarousel({ items }) {
                 showThumbs={false}
             >
                 {items.map((item) => (
-                    <div id="carouselLink" onClick={() => nav(`${item.link}`)} key={item.image}>
+                    <div id="mediaCarousel" onClick={() => window.open(`${item.link}`, '_blank')} key={item.image}>
                         <img src={item.image} alt="" />
                     </div>
                 ))}

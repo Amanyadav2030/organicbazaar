@@ -19,7 +19,6 @@ const initState = {
 }
 export default function Navbar() {
     const [state, dispatch] = useReducer(reducer, initState);
-    console.log(state.combos)
     return (
         <nav>
 

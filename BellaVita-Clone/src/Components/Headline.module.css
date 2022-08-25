@@ -1,0 +1,16 @@
+.Headline{
+    font-size: 27px;
+    letter-spacing: 0.9px;
+    font-weight: 700;
+    color: #475d4b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+.dashes{
+    width: 61px;
+    background:  #e5f0da;
+    height: 2px;
+    border: 1px solid #e5f0da;
+}
