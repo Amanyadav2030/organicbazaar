@@ -7,7 +7,7 @@
     letter-spacing: 0.4px;
     gap: 4px;
     align-items: center;
-}
+} 
 .Floating{
     display: flex;
     border-radius: 8px;
@@ -18,9 +18,6 @@
     /* animation: ; */
     /* transition: ; */
     animation: floating 400ms normal;
-}
-.Floating:hover{
-
 }
 @keyframes floating {
     0%{transform: translate(0px, 10px);}

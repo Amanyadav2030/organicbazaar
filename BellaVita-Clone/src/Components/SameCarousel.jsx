@@ -1,8 +1,9 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link, useNavigate } from "react-router-dom";
-export default function SolutionCarousel() {
+export default function SameCarousel({ items }) {
     const nav = useNavigate()
+
     return (
         <div className="Carousel">
             <Carousel
@@ -21,7 +22,12 @@ export default function SolutionCarousel() {
                 stopOnHover
                 showThumbs={false}
             >
-                <div>
+                {items?.map((item) => (
+                    <div key={item.image}>
+                        <img src={item.image} alt="" />
+                    </div>
+                ))}
+                {/* <div>
                     <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Tan_Removal_Medium_1_480x.jpg?v=1659102685" alt="" />
                 </div>
                 <div>
@@ -53,7 +59,7 @@ export default function SolutionCarousel() {
                 <div>
                     <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dandruff_Medium_1_480x.jpg?v=1659102844" alt="" />
 
-                </div>
+                </div> */}
 
 
 

@@ -1,0 +1,78 @@
+.container{
+    display: flex;
+    margin: 2rem auto;
+    width: 95%;
+    
+}
+.left{
+    width: 32%;
+    flex-direction: column;
+    display: flex;
+    gap: 7vh;
+    border-right: 2px solid #e5f0da;
+    align-items: center;
+    padding-right: 14px;
+}
+.right{
+    border: 1px solid transparent;
+    width: 60%;
+     
+}
+.left div{
+    border: 1px solid transparent;
+    width: 72%;
+    letter-spacing: 1.3px;
+    padding: 0.9rem;
+    background: #e5f0da;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.breadcrumb{
+    margin-top: 23px;
+    font-size: 20px;
+    width: 90%;
+    margin: 23px auto 0px auto;
+}
+.editable{
+    margin-top: 42px;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+    align-items: flex-start;
+}
+.name{
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+    color:  #475d4b;
+}
+.editable input{
+    border: 1px solid transparent;
+    width: 233px;
+    outline: none;
+    color: gray;
+    letter-spacing: 0.4px;
+    font-weight: 700;
+}
+.editable div{
+    display: flex;
+    border: 1px solid transparent;
+    width: 53%;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+.editable button{
+    margin-left: 101px;
+    border: 1px solid transparent;
+    padding: 4px 22px;
+    border-radius: 5px;
+    background: #e5f0da;
+    color: #475d4b;
+    font-weight: 700;
+}
+.editable button:hover{
+    background: #475d4b;
+    color:#e5f0da;
+}

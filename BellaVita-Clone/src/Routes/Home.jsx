@@ -5,8 +5,9 @@ import Headline from "../Components/Headline";
 import Luxury from "../Components/Luxury";
 import MediaCarousel from "../Components/MediaCarousel";
 import Navbar from "../Components/Navbar/Navbar";
-import SolutionCarousel from "../Components/solutionCarousel";
-
+import SameCarousel from "../Components/SameCarousel";
+import Download from "../Components/Download";
+import Footer from "../Components/Footer";
 
 const banner = [
     {
@@ -66,6 +67,74 @@ const media = [
         link: 'https://yourstory.com/2021/04/bella-vita-organics-d2c-natural-skincare-brand/amp'
     },
 ]
+const solutionCarousel = [
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Tan_Removal_Medium_1_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Skin_Brightening_Medium_1_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dry___Dull_Lips_Medium_cf9c66a7-0dab-412c-825a-0386c49494ff_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dark_Circles_Medium_1_480x.jpg?v=1659102774',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Pimples-Acne_Medium_dafd662e-0a24-4ad8-9ee4-67df76fa35bf_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair-Loss-_-Thinning-V1_Medium_e3d45b13-d781-4786-a456-5efa31adb360_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Pigmentation-v1_Medium_f0a099e8-174b-4576-b81f-c943b875e9eb_480x.jpg?v=1659102685',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dandruff_Medium_1_480x.jpg?v=1659102844',
+        link: ''
+    },
+]
+const spotLight = [
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Skin_Care_V1_Medium_717c8f68-9b82-4c7c-9ff2-0e886f52103d_480x.jpg?v=1659102928',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Body_Care_V2_Medium_860c536d-b4a1-4a37-b3f3-4d1c4e1f004d_480x.jpg?v=1659102928',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair_Care_V1.1_Medium_a2d75bd0-3b18-4c34-92cf-04d4c74e2bcb_480x.jpg?v=1659102927',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Summer_Essentials_V1_Medium_10dbdd6d-898e-4ea4-8d21-d6bfe4a70bc6_480x.jpg?v=1659102927',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Sensitive_Skin_V1_Medium_e87ef676-5616-4d72-b498-92e1808e3552_480x.jpg?v=1659102928',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Skin_Hydration_V1_Medium_bf8933f3-4b75-400b-a933-8adc21291912_480x.jpg?v=1659102928',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Detan___Exfoliation_V1_Medium_e5175d97-bd53-467d-8461-9454d3153379_480x.jpg?v=1659102928',
+        link: '/'
+    },
+    {
+        image: 'https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair_Nourishment_V1_Medium_b8a624dd-42d3-422c-9ab2-cd97c1863f97_480x.jpg?v=1659102927',
+        link: '/'
+    },
+]
 
 export default function Home() {
     return (
@@ -79,10 +148,13 @@ export default function Home() {
             <div id="giftbox" >
                 <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Untitled_design_desktop_1900x.png?v=1659612770" alt="giftbox" />
             </div>
-            <Headline text={"BESTSELLERS"} />
+            <Headline text={"IN THE SPOTLIGHT"} />
+            <div id="SpotLight">
+                <SameCarousel items={spotLight} />
+            </div>
             <Headline text={"FIND SOLUTIONS FOR"} />
             <div id="findSolution">
-                <SolutionCarousel />
+                <SameCarousel items={solutionCarousel} />
             </div>
             <Headline text={"LUXURY FRAGRANCES"} />
             <Luxury />
@@ -96,6 +168,10 @@ export default function Home() {
             <div id="bellaCash">
                 <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Bella-Cash-Section-Desktop-v1_1900x.jpg?v=1660051412" alt="" />
             </div>
+            <div id="download">
+                <Download />
+            </div>
+            <Footer />
         </div>
     )
 }

@@ -3,6 +3,9 @@
     color: #475d4b;
         z-index: 10; 
 }
+li{
+  list-style: none;
+}
 #navbarLinks>li{
   height: 47px;
   border-top-right-radius: 8px;
@@ -91,7 +94,7 @@
     align-items: center;
 
   }
-  input{
+  header input{
     padding: 0.45rem 1rem !important;
     border: 1px solid;
     width: 18rem;
@@ -144,11 +147,12 @@
 /* find solution carousel */
 
 #findSolution img{
-  width: 285px;
+  width: 260px;
   height: 266px;
 }
 #findSolution .carousel-slider{
   padding-bottom: 37px;
+  padding-top: 20px;
 };
 #findSolution{
   padding: 17px 12px;
@@ -166,6 +170,23 @@
 #media .carousel-slider{
   padding-bottom: 35px;
 }
+
+#SpotLight img{
+  width: 262px;
+  height: 318px;
+  border-radius: 8px;
+}
+#SpotLight .carousel-slider{
+  padding-bottom: 37px;
+  padding-top: 20px;
+};
+#SpotLight{
+  padding: 17px 12px;
+
+}
+#SpotLight .slide{
+  cursor: pointer;
+}
 /* end  */
 #trust,#bellaCash{
   display: flex;
@@ -177,4 +198,84 @@
 }
 #bellaCash img{
   cursor: pointer;
+}
+
+#Form{
+  display: flex;
+  justify-content: center;
+  margin: 4rem;
+}
+
+.userAccount svg{
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.userAccount{
+  width: 30px;
+}
+.userAccount svg:hover{
+  width: 2.1rem;
+  height:3rem;
+
+}
+/* Footer css  */
+#footer{
+  display: flex;
+  padding: 56px 26px;
+  background-color: #f1f7ec ; 
+}
+.FooterHead{
+  color: #475d4b;
+  font-size: 18px;
+  font-weight: 700;
+  font: 20px;
+  border-bottom: 1px solid transparent;
+}
+#footer ul{
+  border: 1px solid transparent;
+  display: flex;
+  gap: 13px;
+  align-items: self-start;
+  flex-direction: column;
+
+}
+#footer ul li{
+  color: rgb(40, 38, 38);
+}
+#div1{
+  padding: 13px 22px;
+  display: flex;
+  width: 44%;
+  gap: 44px;
+  border: 1px solid transparent ;
+}
+
+
+#div2{
+  display: flex;
+  /* padding: 12px 10px; */
+  padding: 13px 15px;
+  border: 1px solid transparent;
+  gap: 52px;
+}
+#div2 input{
+  width: 72%;
+  /* margin: auto; */
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 0.7rem;
+}
+#div2 button{
+  border: 1px solid;
+  padding: 10px 35px;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 2px;
+  background-color:#475d4b ;
+  color: #e5f0da;
+}
+#last{
+  display: flex;
+  background-color: #475d4b;
 }

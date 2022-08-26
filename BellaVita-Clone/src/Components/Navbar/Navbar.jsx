@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css';
-import { Center, Divider } from '@chakra-ui/react';
+import { background, Center, Divider } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import SkinCare from './SkinCare';
 import HairCare from './HairCare';
@@ -20,7 +20,12 @@ const initState = {
 export default function Navbar() {
     const [state, dispatch] = useReducer(reducer, initState);
     return (
-        <nav>
+        <nav style={{
+            position: "sticky",
+            top: '-1px',
+            zIndex: 5,
+            background: "white"
+        }}>
 
             <ul id="navbarLinks" className={styles.Navbar}>
                 <li><Link to='/'>SHOP ALL</Link></li>
