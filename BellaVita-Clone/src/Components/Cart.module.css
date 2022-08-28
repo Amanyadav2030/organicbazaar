@@ -1,0 +1,75 @@
+.container{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+}
+.Image{
+    width: 127px;
+    padding: 3px;
+    border-right: 1px solid;
+}
+
+.prbox{
+    display: flex;
+    border: 1px solid transparent;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+}
+.prices{
+    border: 1px solid transparent;
+    font-size: 21px;
+    font-weight: 600;
+
+}
+.prices span{
+    text-decoration: line-through;
+    font-size: 19px;
+    margin-left: 6px;
+}
+.Box{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    border: 1px solid black;
+}
+.cartName{
+  white-space: nowrap; 
+  font-size: 18px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.count{
+    border: 1px solid;
+    width: 2rem;
+    font-size: 17px;
+    height: 100%;
+    background-color: #e5f0da;
+    cursor: text;
+}
+.counter{
+    display: flex;
+    height: 31px;
+}
+.btn1{
+    border: 1px solid #475d4b;
+    width: 2rem;
+    height: 100%;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    font-size: 18px;
+    font-weight: 700;
+    color: gray;
+}
+.btn2{
+    color: gray;
+    border: 1px solid #475d4b;
+    width: 2rem;
+    font-size: 17px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    font-weight: 700;
+    height: 100%;
+}

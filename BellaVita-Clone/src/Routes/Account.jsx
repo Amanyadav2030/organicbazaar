@@ -13,6 +13,7 @@ import styles from './Account.module.css';
 import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../Context/AppContext";
 import { NavLink } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 
 export default function Account() {
@@ -98,6 +99,7 @@ export default function Account() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
     )

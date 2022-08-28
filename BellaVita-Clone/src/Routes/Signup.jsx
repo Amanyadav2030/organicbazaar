@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useToast } from '@chakra-ui/react';
 import { AppContext } from "../Context/AppContext";
+import Footer from "../Components/Footer";
 let userArr = JSON.parse(localStorage.getItem('infoArr')) || [];
 export default function Signup() {
     const redirect = useNavigate();
@@ -66,6 +67,7 @@ export default function Signup() {
 
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }

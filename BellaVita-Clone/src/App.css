@@ -53,59 +53,79 @@ li{
   }
   svg{
     fill: #000;
-    height: 2rem;
+    height: 1.9rem;
     width: 2rem;
+    cursor:pointer;
   }
   #logos img{
-    width: 85px;
-    height: 85px;
+    width: 77px;
+    height: 79px;
   }
 
   header{    
     display: flex;
-    width: 90vw;
     justify-content: center;
     justify-content: space-between;
     align-items: center;
     border: 1px solid transparent;
     margin: auto;
-    padding: 4px 7px;
+    padding: 4px 45px;
   }
   #logos{
     display: flex;
     gap: 15px;
     border: 1px solid transparent;
     width: 20rem;
+    position: relative;
     justify-content: end;
+    left: 70px;
 
   }
   input+svg{
-    position: relative ;
+    position: absolute;
     width: 18px;
     fill: black;
     transform: rotate(83deg);
-    right: 24px;
-    top: 4px;
+    right: 83px;
+    cursor: pointer;
   }
   #logos + div{
-    
+    gap: 7px;
     display: flex;
     border: 1px solid transparent;
     align-items: center;
+    position:relative;
+    left:145px;
 
   }
+  .cart{
+    width: 33px;
+  }
+  .cart svg:hover{
+    height: 2rem;
+    width: 2.1rem;
+  }
   header input{
-    padding: 0.45rem 1rem !important;
+    padding: 6px 20px !important;
     border: 1px solid;
     width: 18rem;
     outline: none;
     border-radius: 11px;
   }
+  .Heart{
+    width: 33px;
+  }
 .Heart svg{
   fill: none;
-    width: 34px;
-    stroke-width: 21px;
-    stroke-width: 14px;
+  height: 28px;
+  width: 29px;
+  stroke-width: 19px;
+  cursor: pointer;
+      margin-top: 5px;
+}
+.Heart svg:hover{
+  width: 31px;
+  height: 30px;
 }
 /* Carousel styles */
 #banner{
@@ -279,3 +299,41 @@ li{
   display: flex;
   background-color: #475d4b;
 }
+#Productdetails{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+#category{
+  border: 1px solid transparent;
+  width: 20%;
+}
+#sort select{
+  outline: none;
+  cursor: pointer;
+}
+#sort select option{
+  outline: none;
+  cursor: pointer;
+}
+#sort{
+  letter-spacing: 1px;
+  color: gray;
+}
+/* #ourproducts{
+  border: 1px solid transparent;
+  width: 75%;
+}; */
+
+
+
+
+
+
+
+
+
+
+
+/* overflow: hidden; */
+/* text-overflow: ellipsis; */

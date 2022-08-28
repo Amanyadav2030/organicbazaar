@@ -13,7 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AppContext } from "../Context/AppContext";
-
+import Footer from "../Components/Footer";
 
 export default function Login() {
     const redirect = useNavigate();
@@ -82,6 +82,7 @@ export default function Login() {
 
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }

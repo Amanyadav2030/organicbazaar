@@ -28,7 +28,7 @@ export default function Navbar() {
         }}>
 
             <ul id="navbarLinks" className={styles.Navbar}>
-                <li><Link to='/'>SHOP ALL</Link></li>
+                <li><Link to='/allproducts'>SHOP ALL</Link></li>
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>

@@ -1,6 +1,6 @@
 .luxury{
     display: flex;
-    padding:40px;
+    padding:40px; 
 }
 .box{
    overflow: hidden;

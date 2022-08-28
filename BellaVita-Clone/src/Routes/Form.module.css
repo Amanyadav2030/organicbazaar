@@ -6,6 +6,7 @@
     color: #e5f0da;
     font-size: 18px;
     font-weight: 700;
+    border-radius: 12px;
 }
 .Form{
     display: flex;

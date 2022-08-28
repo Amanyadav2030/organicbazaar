@@ -1,10 +1,30 @@
 import { Icon } from '@chakra-ui/react'
 // import { MdSettings } from 'react-icons/md'
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    Button,
+    useDisclosure,
+} from '@chakra-ui/react'
+import { useState } from 'react';
 import { FaSearch, FaHeart } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './Cart.module.css';
+import Counter from './Counter';
 
 export default function Header() {
     const redirect = useNavigate();
+    const [count, setCount] = useState(1);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const handleClick = () => {
+        onOpen()
+    }
     return (
         <header>
             <div className='userAccount' onClick={() => redirect('/account')}>
@@ -18,12 +38,46 @@ export default function Header() {
             <div>
                 <input type="text" placeholder="Search for products" />
                 <FaSearch />
+                <div className="cart" onClick={handleClick} >
+                    <svg className="icon icon-cartnew" viewBox="0 0 209.58 270"><path d="M209.21 247.91l-.25-2.02-6.68-60.32-12.93-119.13c-.55-5.31-2.39-6.93-7.55-6.74-9.45.35-18.93.1-29.09.1.89-15.79.3-30.68-10.45-42.91C131.54 4.71 118.11-.61 101.91.06c-11.4.47-21.18 4.46-29.74 11.7C57.38 24.28 55.28 41.21 56.7 59.8c-11.07 0-21.09.05-31.1-.02-3.22-.03-4.97.95-5.3 4.55l-3.96 36.51-10.72 97.83-5.54 54.77c-.86 10.96 4.88 16.34 15.77 16.34l173.51.21c16.97.15 21.68-7.05 19.85-22.09zM79.73 13.65c15.54-10.41 32.02-10.84 48.03-1.23 17.73 10.63 20.64 27.73 18.65 47.06H62.98c-1.89-18.27.39-34.86 16.75-45.83zm114.29 250.44c-1.19.07-2.37.04-3.57.04H18.93c-1.53 0-3.07.04-4.59-.12-6.02-.61-9.17-4.27-8.53-10.37l7.89-73.03 10.86-98.88 1.85-15.58h30.07c0 3.31-.39 6.4.14 9.32a4.5 4.5 0 0 0 .17.63c.94 2.79 5.13 2.56 5.62-.34v-.05c.46-2.96.13-6.04.13-9.46h84.29c0 4.31-.25 8.67.13 12.96a2.76 2.76 0 0 0 .06.4c.59 2.6 4.3 2.85 5.41.42.15-.33.25-.66.29-.99.46-4.16.15-8.4.15-12.89h30.1l2.76 23.69 15.14 137.92 2.63 25.38c.68 6.9-2.5 10.54-9.49 10.96z"></path></svg>
+                </div>
                 <div className='Heart'>
                     <FaHeart />
                 </div>
-                <div className="cart">
-                    <svg className="icon icon-cartnew" viewBox="0 0 209.58 270"><path d="M209.21 247.91l-.25-2.02-6.68-60.32-12.93-119.13c-.55-5.31-2.39-6.93-7.55-6.74-9.45.35-18.93.1-29.09.1.89-15.79.3-30.68-10.45-42.91C131.54 4.71 118.11-.61 101.91.06c-11.4.47-21.18 4.46-29.74 11.7C57.38 24.28 55.28 41.21 56.7 59.8c-11.07 0-21.09.05-31.1-.02-3.22-.03-4.97.95-5.3 4.55l-3.96 36.51-10.72 97.83-5.54 54.77c-.86 10.96 4.88 16.34 15.77 16.34l173.51.21c16.97.15 21.68-7.05 19.85-22.09zM79.73 13.65c15.54-10.41 32.02-10.84 48.03-1.23 17.73 10.63 20.64 27.73 18.65 47.06H62.98c-1.89-18.27.39-34.86 16.75-45.83zm114.29 250.44c-1.19.07-2.37.04-3.57.04H18.93c-1.53 0-3.07.04-4.59-.12-6.02-.61-9.17-4.27-8.53-10.37l7.89-73.03 10.86-98.88 1.85-15.58h30.07c0 3.31-.39 6.4.14 9.32a4.5 4.5 0 0 0 .17.63c.94 2.79 5.13 2.56 5.62-.34v-.05c.46-2.96.13-6.04.13-9.46h84.29c0 4.31-.25 8.67.13 12.96a2.76 2.76 0 0 0 .06.4c.59 2.6 4.3 2.85 5.41.42.15-.33.25-.66.29-.99.46-4.16.15-8.4.15-12.89h30.1l2.76 23.69 15.14 137.92 2.63 25.38c.68 6.9-2.5 10.54-9.49 10.96z"></path></svg>
-                </div>
+            </div>
+            <div id="cartdrawer">
+
+
+                <Drawer onClose={onClose} isOpen={isOpen} size={'md'}>
+                    <DrawerOverlay />
+                    <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerHeader> <Link to='/allproducts' style={{
+                            textDecoration: "underline"
+                        }}> Continue Shopping</Link> </DrawerHeader>
+                        <DrawerBody>
+                            {cartItems?.map((el) => (
+                                <div className={styles.container}>
+                                    <div className={styles.cartimage}>
+                                        <img className={styles.Image} src={el.Image} alt="" />
+                                    </div>
+                                    <div className={styles.Box}>
+                                        <p className={styles.cartName}>{el.brand}</p>
+                                        {/* <div className={styles.prbox}>
+                                            <p className={styles.prices}>{`₹ ${el.disPrice}.00`} <span>{`₹${el.realPrice}.00`}</span></p>
+                                        </div> */}
+                                        {/* <div className={styles.counter}>
+                                            <button onClick={() => setCount(count - 1)} disabled={count == 1} className={styles.btn1}>-</button>
+                                            <button className={styles.count}>{count}</button>
+                                            <button onClick={() => setCount(count + 1)} className={styles.btn2}>+</button>
+                                        </div> */}
+                                        <Counter el={el} />
+                                    </div>
+                                </div>
+                            ))}
+                        </DrawerBody>
+                    </DrawerContent>
+                </Drawer>
             </div>
         </header>
     )

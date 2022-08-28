@@ -1,0 +1,65 @@
+import { useEffect, useState } from "react";
+import { getAllProduct } from "../api/api";
+import Card from "../Components/Card";
+import Catagories from "../Components/Categories";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
+import Navbar from "../Components/Navbar/Navbar";
+import Products from "../Components/Products";
+import styles from "./AllProducts.module.css";
+
+export default function AllProducts() {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        getAllProduct().then(res => {
+            setData(res.data);
+        }).catch((err) => {
+            console.log(err)
+        })
+    }, []);
+    const handleSort = (event) => {
+        const { value } = event.target;
+        if (value === 'lth') {
+            data.sort((a, b) => a.disPrice - b.disPrice);
+            setData([...data]);
+
+        } else if (value === 'htl') {
+            data.sort((a, b) => b.disPrice - a.disPrice);
+            setData([...data]);
+        } else if (value === 'bestselling') {
+            const Filter = data.filter((el) => el.status === true);
+            setData([...Filter]);
+        }
+
+    };
+    return (
+        <div>
+            <Header />
+            <Navbar />
+            <div id="Productdetails">
+                <h1>Refine by</h1>
+                <h1>
+                    {`${data.length} products`}
+                </h1>
+                <div id="sort">
+                    Sortby:  <select id="" onChange={handleSort}>
+                        <option value=""> Featured</option>
+                        <option value="bestselling"> Best Selling</option>
+                        <option value="lth">Price, Low to High</option>
+                        <option value="htl">Price, High to Low</option>
+                    </select>
+                </div>
+
+            </div>
+            <div className={styles.container}>
+                <div id="category">
+                    <Catagories />
+                </div>
+                <div className={styles.products}>
+                    <Products data={data} />
+                </div>
+            </div>
+            <Footer />
+        </div>
+    )
+}

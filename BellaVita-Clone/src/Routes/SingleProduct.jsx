@@ -2,29 +2,40 @@ import Header from "../Components/Header";
 import Navbar from "../Components/Navbar/Navbar";
 import styles from './SingleProduct.module.css';
 import { FaStar } from 'react-icons/fa'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
-const data = {
-    id: 1,
-    Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-01_1_Medium_a7654ecf-8f6c-4b46-9d27-f3c5e8a30f28_900x.jpg?v=1659101350",
-    Hover: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-02Medium_533x.jpg?v=1659101350",
-    category: "body",
-    brand: "Exfoliate Face And Body Scrub Grit, 75gm",
-    disPrice: 220,
-    realPrice: 275,
-    rating: "4.8",
-    title: "Gentle Exfoliation, Nourishing & Skin Brightening",
-    status: true
-};
+import { getsingleData } from "../api/api";
+import { useParams } from "react-router-dom";
+// const data = {
+//     id: 1,
+//     Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-01_1_Medium_a7654ecf-8f6c-4b46-9d27-f3c5e8a30f28_900x.jpg?v=1659101350",
+//     Hover: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-02Medium_533x.jpg?v=1659101350",
+//     category: "body",
+//     brand: "Exfoliate Face And Body Scrub Grit, 75gm",
+//     disPrice: 220,
+//     realPrice: 275,
+//     rating: "4.8",
+//     title: "Gentle Exfoliation, Nourishing & Skin Brightening",
+//     status: true
+// };
 export default function SingleProducts() {
     const [count, setCount] = useState(1);
+    const [data, setData] = useState({});
+    const params = useParams();
+    useEffect(() => {
+        getsingleData(params.id).then((res) => {
+            setData(res.data);
+        });
+    }, [params.id]);
+    console.log(data);
     return (
         <div>
             <Header />
             <Navbar />
             <div className={styles.container}>
                 <div className={styles.imgsection}>
-                    <img src={data.Image} alt="" />
+                    <img src={data.Image} className={styles.Image} alt="" />
+                    {data.status && <img className={styles.bestseller} src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Best-sellers-tag.png?v=10809169506792369733" alt="" />}
                 </div>
                 <div className={styles.infosection}>
                     <h2 className={styles.brand}>{data.brand}</h2>

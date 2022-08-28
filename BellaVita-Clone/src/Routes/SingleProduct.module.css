@@ -1,17 +1,27 @@
 .container{
-    border: 1px solid orange;
+    border: 1px solid transparent;
     display: flex;
 }
 .imgsection{
-    border: 1px solid chocolate;
+    border: 1px solid transparent;
+    width: 55%;
+    position: relative;
 }
 .infosection{
-    border: 1px solid lightgreen;
+    border: 1px solid transparent;
     width: 43%;
     padding: 23px;
+  
 }
-.imgsection img{
-    width: 93%;
+.Image{
+    width: 90%;
+    margin: auto;
+}
+.bestseller{
+    width: 175px;
+    top: 10px;
+    left: 26px;
+    position: absolute;
 }
 .brand{
     font-size: 21px;
