@@ -60,7 +60,7 @@ export default function Account() {
                 </BreadcrumbItem>
             </Breadcrumb>
             <h1 className={styles.name}>{`Hello ${info.firstname}`}</h1>
-            <div className={styles.container}>
+            <div className={styles.container} style={{display:"flex"}}>
 
                 <div className={styles.left}>
                     <div>MY PROFILE</div>
