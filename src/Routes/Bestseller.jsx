@@ -53,7 +53,7 @@ export default function Bestseller() {
                 <div id="category">
                     <Catagories />
                 </div>
-                <div className={styles.products}>
+                <div className={styles.products} style={{width:"225rem"}}>
                     <Products data={data} />
                 </div>
             </div>
