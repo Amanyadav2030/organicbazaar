@@ -1,0 +1,39 @@
+
+.InfoContainer{
+    border: 1px solid transparent;
+    padding: 52px;
+    width: 43%;
+    background-color: #fafafa;
+}
+.itemsBox{
+   border-bottom: 2px solid  gray;
+        display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.item{
+    display: flex;
+    border: 1px solid transparent;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.item img{
+    width: 79px;
+    border-radius: 10px;
+}
+.brand{
+    border: 1px solid transparent;
+    width: 236px;
+    font-weight: 500;
+}
+.qty{
+    position: absolute;
+    border: 1px solid;
+    border-radius: 50%;
+    left: 63px;
+    padding: 1px 9px;
+    background: rgba(114,114,114,0.9);
+    color: white;
+    top: -12px;
+}

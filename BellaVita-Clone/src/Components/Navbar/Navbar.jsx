@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
-                <li><Link to='/'>BESTSELLERS</Link></li>
+                <li><Link to='/bestseller'>BESTSELLERS</Link></li>
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>

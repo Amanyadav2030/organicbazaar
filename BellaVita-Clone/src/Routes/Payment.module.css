@@ -1,0 +1,71 @@
+.header{
+    display: block;
+    padding-top: 10em;
+    padding-bottom: 2em;
+    background:  url('https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Checkout_Banner.png?v=16517100635') center center;
+    background-size: cover;
+}
+.container{
+    display: flex;
+    border: 1px solid transparent;
+    padding: 50px 4px;
+}
+.Payment{
+    border: 1px solid transparent;
+    width: 56%;
+    display: flex;
+    padding: 31px 48px;
+    flex-direction: column;
+    /* gap: 71px; */
+    gap: 10px;
+}
+.Payment input{
+    border: 1px solid;
+   
+    padding: 13px 17px;
+
+    font-size: 16px;
+    width: 95%;
+    border-radius: 6px;
+}
+.Payment form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.Payment h2{
+    font-size: 32px;
+    font-weight: 600;
+}
+.Payment h3{
+    font-size: 22px;
+    font-weight: 500;
+}
+.Cvv{
+    gap: 25px;
+    display: flex;
+}
+.Cvv div{
+    width: 48%;
+}
+.header img{
+    width: 200px;
+    margin-left: 27px;
+    border: none;
+}
+.Payment button{
+    padding: 13px 20px;
+    border: 1px solid transparent;
+    font-weight: 700;
+    border-radius: 7px;
+    cursor: pon;
+    background: #475d4b;
+    cursor: pointer;
+    font-size: 21px;
+    color: white;
+    /* margin: auto; */
+    width: 97%;
+}
+.Payment button:disabled{
+    background-color: #77877a;
+}

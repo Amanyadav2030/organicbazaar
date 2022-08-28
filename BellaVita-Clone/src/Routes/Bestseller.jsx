@@ -8,12 +8,13 @@ import Navbar from "../Components/Navbar/Navbar";
 import Products from "../Components/Products";
 import styles from "./AllProducts.module.css";
 
-export default function AllProducts() {
+export default function Bestseller() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         getAllProduct().then(res => {
-            setData(res.data);
+            const Filter = res.data.filter((el) => el.status === true);
+            setData([...Filter]);
         }).catch((err) => {
             console.log(err)
         })
@@ -27,9 +28,6 @@ export default function AllProducts() {
         } else if (value === 'htl') {
             data.sort((a, b) => b.disPrice - a.disPrice);
             setData([...data]);
-        } else if (value === 'bestselling') {
-            const Filter = data.filter((el) => el.status === true);
-            setData([...Filter]);
         }
 
     };
@@ -45,7 +43,6 @@ export default function AllProducts() {
                 <div id="sort">
                     Sortby:  <select id="" onChange={handleSort}>
                         <option value=""> Featured</option>
-                        <option value="bestselling"> Best Selling</option>
                         <option value="lth">Price, Low to High</option>
                         <option value="htl">Price, High to Low</option>
                     </select>

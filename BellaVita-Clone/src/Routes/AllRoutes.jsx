@@ -7,6 +7,8 @@ import PrivateRoute from '../Components/PrivateRoute';
 import SingleProduct from './SingleProduct';
 import AllProducts from './AllProducts';
 import Checkout from './Checkout';
+import Payment from './Payment';
+import Bestseller from './Bestseller';
 export default function AllRoutes() {
     return (
         <Routes>
@@ -20,7 +22,9 @@ export default function AllRoutes() {
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/allproducts' element={<AllProducts />} />
+            <Route path='/bestseller' element={<Bestseller />} />
             <Route path='/product/:id' element={<SingleProduct />} />
+            <Route path='/payment' element={<Payment />} />
             <Route path='/checkout' element={<Checkout />} />
         </Routes>
     )

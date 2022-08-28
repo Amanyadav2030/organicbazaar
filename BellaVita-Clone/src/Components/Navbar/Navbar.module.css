@@ -43,3 +43,10 @@
 .Floating img{
     margin-top: 15px;
 }
+.Floating_div li{
+    cursor: pointer;
+};
+.Floating_div li:hover{
+    cursor: pointer;
+    text-decoration: underline !important;
+};

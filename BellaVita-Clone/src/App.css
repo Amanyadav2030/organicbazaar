@@ -304,6 +304,15 @@ li{
   justify-content: space-between;
   padding: 20px;
 }
+#Productdetails img{
+  width: 25px;
+}
+#Productdetails h1:first-child{
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  gap: 10px;
+}
 #category{
   border: 1px solid transparent;
   width: 20%;
@@ -324,9 +333,20 @@ li{
   border: 1px solid transparent;
   width: 75%;
 }; */
-
-
-
+#totalBox{
+  display: flex;
+    margin: 32px auto;
+    justify-content: space-between;
+    align-items: center;
+}
+#totalBox p:last-child{
+  font-size: 16px;
+  color: gray;
+  letter-spacing: 0.4px;
+}
+#totalBox p:first-child{
+  font-size: 20px;
+}
 
 
 
