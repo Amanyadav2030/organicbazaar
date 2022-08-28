@@ -325,6 +325,9 @@ li{
   outline: none;
   cursor: pointer;
 }
+#ProductsGrid{
+    width:225rem;
+}
 #sort{
   letter-spacing: 1px;
   color: gray;
