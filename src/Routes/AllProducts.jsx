@@ -56,7 +56,7 @@ export default function AllProducts() {
                 <div id="category">
                     <Catagories />
                 </div>
-                <div className={styles.products}>
+                <div className={styles.products} id="ProductsGrid" >
                     <Products data={data} />
                 </div>
             </div>
