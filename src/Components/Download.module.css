@@ -1,0 +1,37 @@
+.download{
+    height: 520px;
+    background:  #e5f0da;
+    position: relative;
+    margin-top: 20px;
+}
+.tagline{
+    position: absolute;
+    top: 10rem;
+    color: #e5f0da;
+    text-align: right;
+    font-size: 49px;
+    font-weight: 700;
+    width: 100%;
+    background: #475d4b;
+    padding: 8px 120px;
+}
+.mobileImg{    position: absolute;
+    left: 14rem;
+    top: 2rem;
+    transition: transform .5s ease;
+    height: 92%;
+    z-index: 3;
+    cursor: pointer;
+}
+.mobileImg:hover{
+    transform: scale(1.05); 
+}
+.stores{
+    display: flex;
+    position: absolute;
+    right: 22rem;
+    top: 19rem;
+}
+.stores img{
+    width: 194px;
+}

@@ -1,0 +1,60 @@
+.btn{
+    background-color: #475d4b;
+    cursor: pointer;
+    width: 14em;
+    padding: 10px 4px !important;
+    color: #e5f0da;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
+}
+.Form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 29rem; 
+    gap: 27px;
+}
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    border: 1px solid transparent;
+    height: 12rem;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.inputs{
+    width: 100%;
+    border-radius: 0px;
+    border: 1.5px solid #475d4b;
+    padding: 0.7rem 1rem !important;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    outline: none;
+    
+}
+.inputs:hover{
+    border: 2px solid #475d4b;
+   
+}
+.underline{
+    border-bottom: 1px solid;
+    cursor: pointer;
+}
+.underline:hover{
+    border-bottom: 1.7px solid;
+}
+.header{
+    font-weight: 400 !important; 
+    font-size: 46px !important;
+}
+.inputDiv2{
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    border: 1px solid transparent;
+    height: 19rem;
+    justify-content: space-around;
+    align-items: flex-start;
+}
