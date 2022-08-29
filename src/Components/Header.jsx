@@ -21,7 +21,7 @@ import styles from './Cart.module.css';
 export default function Header() {
     const redirect = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { handleSetTotal } = useContext(AppContext);
+    const { isAuth } = useContext(AppContext);
 
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     const [items, setItems] = useState(cartItems);
@@ -36,7 +36,7 @@ export default function Header() {
             }
         });
         setItems([...localItems]);
-    }, [cartItems]);
+    }, []);
     const handleQuantity = (id, value) => {
         const updateItem = items.map((el) =>
             el.id === id ? { ...el, quantity: el.quantity + value } : el
@@ -51,9 +51,10 @@ export default function Header() {
         setItems([...Filter]);
         localStorage.setItem('cartItems', JSON.stringify(Filter))
     }
-    total.current = items.reduce((prev, el) => prev + el.disPrice * el.quantity, 0);
-    handleSetTotal(total);
+    useEffect(() => {
+        total.current = items.reduce((prev, el) => prev + el.disPrice * el.quantity, 0);
 
+    }, [items])
 
     const handleClick = () => {
         onOpen()
@@ -91,7 +92,7 @@ export default function Header() {
                         }}> Continue Shopping</Link> </DrawerHeader>
                         <DrawerBody>
                             {items?.map((el) => (
-                                <div className={styles.container}>
+                                <div className={styles.container} key={el.id}>
                                     <div className={styles.cartimage}>
                                         <img className={styles.Image} src={el.Image} alt="" />
                                     </div>
@@ -116,7 +117,7 @@ export default function Header() {
                             ))}
                         </DrawerBody>
                         <DrawerFooter>
-                            <Button onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT   <span className={styles.total}>₹{total.current}.00</span></Button>
+                            <Button disabled={!isAuth} onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT   <span className={styles.total}>₹{total.current}.00</span></Button>
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>

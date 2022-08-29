@@ -316,7 +316,8 @@ li{
 #category{
   border: 1px solid transparent;
   width: 54rem;
-}
+};
+
 #sort select{
   outline: none;
   cursor: pointer;

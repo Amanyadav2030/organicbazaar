@@ -20,8 +20,8 @@ export default function Checkout() {
                     </div>
                     <div className={styles.addressContainer}>
                         <h2>Shipping address</h2>
+                        <span className={styles.country}>Country/region</span>
                         <select name="" id="">
-                            <span className={styles.country}>Country/region</span>
                             <option value="India">India</option>
                         </select>
                         <div className={styles.name}>
