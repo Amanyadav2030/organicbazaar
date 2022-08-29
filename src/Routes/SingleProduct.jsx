@@ -6,6 +6,15 @@ import { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import { getsingleData } from "../api/api";
 import { useParams } from "react-router-dom";
+import {
+    Breadcrumb,
+    Divider,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbSeparator,
+    useToast
+} from '@chakra-ui/react';
+import { ChevronRightIcon } from "@chakra-ui/icons";
 // const data = {
 //     id: 1,
 //     Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-01_1_Medium_a7654ecf-8f6c-4b46-9d27-f3c5e8a30f28_900x.jpg?v=1659101350",
@@ -18,20 +27,53 @@ import { useParams } from "react-router-dom";
 //     title: "Gentle Exfoliation, Nourishing & Skin Brightening",
 //     status: true
 // };
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 export default function SingleProducts() {
     const [count, setCount] = useState(1);
     const [data, setData] = useState({});
     const params = useParams();
+    const toast = useToast()
     useEffect(() => {
         getsingleData(params.id).then((res) => {
             setData(res.data);
         });
     }, [params.id]);
-    console.log(data);
+    const checkExist = (id, cartItems) => {
+        let Filter = cartItems.filter(el => el.id == id);
+        return Filter.length >= 1 ? true : false;
+    }
+    const handleAddToCart = () => {
+        const { Image, brand, disPrice, realPrice, rating, id } = data;
+        const addItem = { Image, brand, disPrice, realPrice, rating, id };
+        if (checkExist(addItem.id, cartItems)) {
+            toast({
+                title: `Item Already Exist`,
+                variant: 'subtle',
+                duration: 2000,
+                isClosable: true,
+            })
+        } else {
+            cartItems.push(addItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        };
+    };
     return (
         <div>
             <Header />
             <Navbar />
+            <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
+            <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='/allproducts'>AllProducts</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href='#'>Product</BreadcrumbLink>
+                </BreadcrumbItem>
+            </Breadcrumb>
             <div className={styles.container}>
                 <div className={styles.imgsection}>
                     <img src={data.Image} className={styles.Image} alt="" />
@@ -52,7 +94,7 @@ export default function SingleProducts() {
                             <button onClick={() => setCount(count + 1)} className={styles.btn2}>+</button>
                         </div>
                     </div>
-                    <button className={styles.cartbtn}>ADD TO CART</button>
+                    <button onClick={handleAddToCart} className={styles.cartbtn}>ADD TO CART</button>
                     <div id="offers">
                         <p className={styles.offerLogo}>offers</p>
                         <div className={styles.discountbox}>
