@@ -82,11 +82,11 @@ li{
 
   }
   input+svg{
-    position: absolute;
+     position: absolute;
     width: 18px;
-    fill: black;
+    fill: #000;
     transform: rotate(83deg);
-    right: 83px;
+    right: 90px;
     cursor: pointer;
   }
   #logos + div{
