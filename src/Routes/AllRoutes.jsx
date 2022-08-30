@@ -9,6 +9,10 @@ import AllProducts from './AllProducts';
 import Checkout from './Checkout';
 import Payment from './Payment';
 import Bestseller from './Bestseller';
+import SkinCare from './Skincare';
+import HairCare from './Haircare';
+import Perfume from './Perfumes';
+import BodyCare from './Bodycare';
 export default function AllRoutes() {
     return (
         <Routes>
@@ -23,6 +27,10 @@ export default function AllRoutes() {
             <Route path='/signup' element={<Signup />} />
             <Route path='/allproducts' element={<AllProducts />} />
             <Route path='/bestseller' element={<Bestseller />} />
+            <Route path='/skincare' element={<SkinCare />} />
+            <Route path='/haircare' element={<HairCare />} />
+            <Route path='/bodycare' element={<BodyCare />} />
+            <Route path='/perfumes' element={<Perfume />} />
             <Route path='/product/:id' element={<SingleProduct />} />
             <Route path='/payment' element={<Payment />} />
             <Route path='/checkout' element={<Checkout />} />

@@ -23,7 +23,7 @@ export default function Catagories() {
                     <AccordionItem >
                         <h2>
                             <AccordionButton>
-                                <Box flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left' onClick={() => redirect('/skincare')}>
                                     Skincare
                                 </Box>
                                 <AccordionIcon />
@@ -92,7 +92,7 @@ export default function Catagories() {
                     <AccordionItem >
                         <h2>
                             <AccordionButton>
-                                <Box flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left' onClick={() => redirect('/haircare')}>
                                     Haircare
                                 </Box>
                                 <AccordionIcon />
@@ -141,7 +141,7 @@ export default function Catagories() {
                     <AccordionItem >
                         <h2>
                             <AccordionButton>
-                                <Box flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left' onClick={() => redirect('/bodycare')}>
                                     Bodycare
                                 </Box>
                                 <AccordionIcon />
@@ -171,7 +171,7 @@ export default function Catagories() {
                     <AccordionItem >
                         <h2>
                             <AccordionButton>
-                                <Box flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left' onClick={() => redirect('/perfumes')}>
                                     Perfumes
                                 </Box>
                                 <AccordionIcon />
@@ -190,7 +190,7 @@ export default function Catagories() {
                     <AccordionItem >
                         <h2>
                             <AccordionButton>
-                                <Box flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left' >
                                     Combos
                                 </Box>
                                 <AccordionIcon />
