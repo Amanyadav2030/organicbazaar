@@ -2,7 +2,7 @@ import Header from "../Components/Header";
 import Navbar from "../Components/Navbar/Navbar";
 import styles from './SingleProduct.module.css';
 import { FaStar } from 'react-icons/fa'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Footer from "../Components/Footer";
 import { getsingleData } from "../api/api";
 import { useParams } from "react-router-dom";
@@ -15,6 +15,7 @@ import {
     useToast
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { AppContext } from "../Context/AppContext";
 // const data = {
 //     id: 1,
 //     Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-01_1_Medium_a7654ecf-8f6c-4b46-9d27-f3c5e8a30f28_900x.jpg?v=1659101350",
@@ -32,6 +33,7 @@ export default function SingleProducts() {
     const [count, setCount] = useState(1);
     const [data, setData] = useState({});
     const params = useParams();
+    const { handleCartItems, cartItems } = useContext(AppContext);
     const toast = useToast()
     useEffect(() => {
         getsingleData(params.id).then((res) => {
@@ -53,10 +55,24 @@ export default function SingleProducts() {
                 isClosable: true,
             })
         } else {
-            cartItems.push(addItem);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        };
+            handleCartItems(addItem);
+        }
     };
+    // const handleAddToCart = () => {
+    // const { Image, brand, disPrice, realPrice, rating, id } = data;
+    // const addItem = { Image, brand, disPrice, realPrice, rating, id };
+    //     if (checkExist(addItem.id, cartItems)) {
+    //         toast({
+    //             title: `Item Already Exist`,
+    //             variant: 'subtle',
+    //             duration: 2000,
+    //             isClosable: true,
+    //         })
+    //     } else {
+    //         cartItems.push(addItem);
+    //         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    //     };
+    // };
     return (
         <div>
             <Header />
