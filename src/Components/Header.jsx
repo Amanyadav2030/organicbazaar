@@ -15,19 +15,22 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { FaSearch, FaHeart } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../Context/AppContext';
+import Cart from './Cart';
 import styles from './Cart.module.css';
 // import Counter from './Counter';
 
 export default function Header() {
-    const redirect = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { isAuth } = useContext(AppContext);
-
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const [items, setItems] = useState(cartItems);
+    const { isAuth, cartItems, handleCartItems } = useContext(AppContext);
+    const [items, setItems] = useState([]);
     const total = useRef(100);
+    const redirect = useNavigate();
+    // useEffect(() => {
+    //     open && onOpen();
+    //     console.log(open, "Drawer");
+    // }, [open])
     useEffect(() => {
-        let localItems = items.map((el) => {
+        let localItems = cartItems.map((el) => {
             if (el['quantity'] == undefined) {
                 el['quantity'] = 1;
                 return el;
@@ -35,26 +38,29 @@ export default function Header() {
                 return el;
             }
         });
-        setItems([...localItems]);
-    }, []);
+        setItems(cartItems);
+        console.log(cartItems);
+    }, [cartItems]);
+
     const handleQuantity = (id, value) => {
         const updateItem = items.map((el) =>
             el.id === id ? { ...el, quantity: el.quantity + value } : el
         );
-        // console.log(updateItem)
-        setItems([...updateItem]);
+        setItems([...updateItem])
         localStorage.setItem('cartItems', JSON.stringify(updateItem));
     };
     const handleDelete = (id) => {
         const Filter = items.filter((el) => el.id != id);
-        console.log(Filter);
+        // console.log(Filter);
         setItems([...Filter]);
+        handleCartItems(Filter, true);
         localStorage.setItem('cartItems', JSON.stringify(Filter))
     }
     useEffect(() => {
         total.current = items.reduce((prev, el) => prev + el.disPrice * el.quantity, 0);
-
     }, [items])
+
+
 
     const handleClick = () => {
         onOpen()
@@ -81,7 +87,6 @@ export default function Header() {
                 </div>
             </div>
             <div id="cartdrawer">
-
 
                 <Drawer onClose={onClose} isOpen={isOpen} size={'md'}>
                     <DrawerOverlay />

@@ -1,26 +1,20 @@
 import { Box, useToast } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
 import styles from "./Card.module.css";
-// const item = {
-//     id: 27,
-//     Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/WhiteOUD-01_5eb2f95c-36ef-4c3b-a450-657c6dc6f420_900x.jpg?v=1652422287",
-//     Hover: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/WhiteOUD-03_360x.jpg?v=1652422292",
-//     category: "perfume",
-//     brand: "WHITE OUD UNISEX, 100ml",
-//     disPrice: 629,
-//     realPrice: 999,
-//     rating: "4.9",
-//     title: "Eau De Parfum",
-//     status: true
-// }
-const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+import Cart from "./Cart";
+
+// const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
 export default function Card(item) {
+
     const [hover, setHover] = useState(false);
     const toast = useToast()
     const redirect = useNavigate();
     const { Image, Hover, category, brand, disPrice, realPrice, rating, title, status, id } = item;
+    const { handleCartItems, cartItems } = useContext(AppContext);
     const checkExist = (id, cartItems) => {
         let Filter = cartItems.filter(el => el.id == id);
         return Filter.length >= 1 ? true : false;
@@ -35,9 +29,8 @@ export default function Card(item) {
                 isClosable: true,
             })
         } else {
-            cartItems.push(addItem);
-            localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        };
+            handleCartItems(addItem);
+        }
     };
     return (
         <Box className={styles.container} >
