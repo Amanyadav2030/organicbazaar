@@ -51,7 +51,7 @@ li{
   #navbarAnim{
     z-index: 10;
   }
-  svg{
+  .cart svg{
     fill: #000;
     height: 1.9rem;
     width: 2rem;
@@ -89,7 +89,7 @@ li{
     right: 90px;
     cursor: pointer;
   }
-  #logos + div{
+  #SearchBox{
     gap: 7px;
     display: flex;
     border: 1px solid transparent;
@@ -227,7 +227,7 @@ li{
 }
 
 .userAccount svg{
-  width: 2rem;
+  width: 1.8rem;
   height: 2rem;
   cursor: pointer;
 }
@@ -304,6 +304,17 @@ li{
   justify-content: space-between;
   padding: 20px;
 }
+.Bars{
+  width: 2rem;
+  height: 1.6rem;
+  margin-right: 21px;
+  display: none;
+}
+.userAccount2 svg{
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
 #Productdetails img{
   width: 25px;
 }
@@ -353,7 +364,19 @@ li{
 }
 
 
+#logos2{
+  display: flex;
+  gap: 15px;
+  border: 1px solid transparent;
+  width: 100%;
+  justify-content: center;
+  display: none;
 
+}
+  #logos2 img{
+    width: 77px;
+    height: 79px;
+  }
 
 
 
@@ -361,3 +384,62 @@ li{
 
 /* overflow: hidden; */
 /* text-overflow: ellipsis; */
+
+
+.userAccount2{
+  display: none;
+}
+
+
+
+/* Media query start from here */
+@media only screen and (max-width: 600px) {
+  .Nav{
+   display: none;
+  }
+  #category{
+    display: none;
+  }
+  #footer{
+    flex-wrap: wrap;
+  }
+  .userAccount{
+    display: none;
+  }
+  .userAccount2{
+    display: block;
+  }
+  #logos{
+    left: 0px;
+    display: none;
+  }
+  #SearchBox{
+    left: 0px;
+    padding: 4px 6px;
+    gap: 15px;
+  }
+  #logos2{
+    display: flex;
+      left: 0px;
+  }
+  .Bars{
+    display: block;
+  }
+  header{
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 4px 4px;
+  }
+  header input{
+    width: 60vw;
+    padding:5px 20px;
+  }
+  input+svg{
+    width: 26px;
+    left: 67vw;
+  }
+  .Heart{
+    display: none;
+  }
+  
+ }

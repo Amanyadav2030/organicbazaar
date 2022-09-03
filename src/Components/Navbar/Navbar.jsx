@@ -25,7 +25,7 @@ export default function Navbar() {
             top: '-1px',
             zIndex: 5,
             background: "white"
-        }}>
+        }} className="Nav">
 
             <ul id="navbarLinks" className={styles.Navbar}>
                 <li><Link to='/allproducts'>SHOP ALL</Link></li>
