@@ -1,4 +1,4 @@
-/* .Navbar{
+.Navbar{
     border: 1px solid transparent;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
     letter-spacing: 0.4px; 
     gap: 4px;
     align-items: center;
-}  */
+} 
 .Floating{
     display: flex;
     border-radius: 8px;
