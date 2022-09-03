@@ -123,3 +123,11 @@
     border: 0.5px solid;
     background-color: #e5f0da;
 }
+/* Media query start from here */
+@media only screen and (max-width: 600px) {
+   
+    .total{
+        right: 32px;
+    }
+    
+   }

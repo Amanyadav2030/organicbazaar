@@ -31,6 +31,9 @@ export default function Header() {
     //     open && onOpen();
     //     console.log(open, "Drawer");
     // }, [open])
+    const handleOpen = () => {
+        setOpen(!open);
+    }
     useEffect(() => {
         let localItems = cartItems.map((el) => {
             if (el['quantity'] == undefined) {
@@ -81,7 +84,7 @@ export default function Header() {
             </div>
             <div id='SearchBox'>
                 <FaBars className='Bars' onClick={() => setOpen(!open)} />
-                <MenuBar open={open} />
+                <MenuBar open={open} handleOpen={handleOpen} />
                 <input type="text" placeholder="Search for products" />
                 <FaSearch />
                 <div className='userAccount2' onClick={() => redirect('/account')}>
@@ -101,7 +104,7 @@ export default function Header() {
             </div>
             <div id="cartdrawer">
 
-                <Drawer onClose={onClose} isOpen={isOpen} size={'md'}>
+                <Drawer onClose={onClose} isOpen={isOpen} size={'md'} >
                     <DrawerOverlay />
                     <DrawerContent>
                         <DrawerCloseButton />

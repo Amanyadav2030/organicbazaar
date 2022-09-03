@@ -20,7 +20,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './Menubar.module.css';
 
 
-export default function MenuBar({ open }) {
+export default function MenuBar({ open, handleOpen }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const redirect = useNavigate();
     return (
@@ -29,7 +29,7 @@ export default function MenuBar({ open }) {
             <Drawer onClose={onClose} isOpen={open} size={'xs'} placement={"left"}>
                 <DrawerOverlay />
                 <DrawerContent>
-                    <DrawerCloseButton />
+                    <DrawerCloseButton onClick={handleOpen} />
                     <DrawerHeader> <Link to='/allproducts' style={{
                         textDecoration: "underline"
                     }}> UserProfile</Link> </DrawerHeader>
@@ -39,11 +39,11 @@ export default function MenuBar({ open }) {
                                 <div className={styles.same} onClick={() => redirect('/allproducts')}>Shop All</div>
                                 <div className={styles.same}>New Arrivals</div>
                                 <div className={styles.same} onClick={() => redirect('/bestseller')}>Bestsellers</div>
-                                <Accordion defaultIndex={[0]} allowMultiple className={styles.box}>
+                                <Accordion allowMultiple className={styles.box}>
                                     <AccordionItem >
                                         <h2>
                                             <AccordionButton>
-                                                <Box flex='1' textAlign='left' onClick={() => redirect('/skincare')}>
+                                                <Box flex='1' textAlign='left' onClick={() => redirect('/haircare')}>
                                                     Skincare
                                                 </Box>
                                                 <AccordionIcon />

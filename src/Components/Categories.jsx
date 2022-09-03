@@ -19,7 +19,7 @@ export default function Catagories() {
                 <div className={styles.same} onClick={() => redirect('/allproducts')}>Shop All</div>
                 <div className={styles.same}>New Arrivals</div>
                 <div className={styles.same} onClick={() => redirect('/bestseller')}>Bestsellers</div>
-                <Accordion defaultIndex={[0]} allowMultiple className={styles.box}>
+                <Accordion allowMultiple className={styles.box}>
                     <AccordionItem >
                         <h2>
                             <AccordionButton>

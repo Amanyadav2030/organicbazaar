@@ -307,7 +307,6 @@ li{
 .Bars{
   width: 2rem;
   height: 1.6rem;
-  margin-right: 21px;
   display: none;
 }
 .userAccount2 svg{
@@ -403,6 +402,9 @@ li{
   #footer{
     flex-wrap: wrap;
   }
+  #div2{
+    gap: 0px;
+  }
   .userAccount{
     display: none;
   }
@@ -440,6 +442,9 @@ li{
   }
   .Heart{
     display: none;
+  }
+  .css-1lgo8nc{
+    max-width: 85vw !important;
   }
   
  }

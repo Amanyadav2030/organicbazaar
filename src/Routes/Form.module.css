@@ -58,3 +58,11 @@
     justify-content: space-around;
     align-items: flex-start;
 }
+/* Media query start from here */
+@media only screen and (max-width: 600px) {
+   
+    .header{
+        font-size: 36px !important;
+    }
+    
+   }
