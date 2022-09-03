@@ -25,7 +25,7 @@ export default function Navbar() {
             top: '-1px',
             zIndex: 5,
             background: "white"
-        }} className="Nav">
+        }} className='Nav'>
 
             <ul id="navbarLinks" className={styles.Navbar}>
                 <li><Link to='/allproducts'>SHOP ALL</Link></li>
@@ -36,12 +36,12 @@ export default function Navbar() {
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
-                <li><Link to='/bestseller'>BESTSELLERS</Link></li>
+                <li><Link to='/'>BESTSELLERS</Link></li>
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
                 <li onMouseEnter={() => dispatch(funSkinCare(true))} onMouseLeave={() => dispatch(funSkinCare(false))}>
-                    <Link to='/skincare'>SKIN CARE</Link>
+                    <Link to='/'>SKIN CARE</Link>
                     {/* <SkinCare /> */}
                     {state.skincare && <SkinCare />}
                 </li>
@@ -49,21 +49,21 @@ export default function Navbar() {
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
                 <li onMouseEnter={() => dispatch(funHairCare(true))} onMouseLeave={() => dispatch(funHairCare(false))}>
-                    <Link to='/haircare'>HAIR CARE</Link>
+                    <Link to='/'>HAIR CARE</Link>
                     {state.haircare && <HairCare />}
                 </li>
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
                 <li onMouseEnter={() => dispatch(funBodyCare(true))} onMouseLeave={() => dispatch(funBodyCare(false))}>
-                    <Link to='/bodycare'>BODY CARE</Link>
+                    <Link to='/'>BODY CARE</Link>
                     {state.bodycare && <BodyCare />}
                 </li>
                 <Center height='30px' >
                     <Divider orientation='vertical' background='#0c322f33' border='1px' />
                 </Center>
                 <li onMouseEnter={() => dispatch(funPerfumes(true))} onMouseLeave={() => dispatch(funPerfumes(false))}>
-                    <Link to='/perfumes'>PERFUMES</Link>
+                    <Link to='/'>PERFUMES</Link>
                     {state.perfumes && <Perfumes />}
                 </li>
                 <Center height='30px' >
