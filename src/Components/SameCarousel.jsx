@@ -16,8 +16,8 @@ export default function SameCarousel({ items }) {
                 showStatus={false}
                 emulateTouch
                 thumbWidth={100}
-                interval={2200}
-                transitionTime={600}
+                interval={2000}
+                transitionTime={500}
                 useKeyboardArrows
                 stopOnHover
                 showThumbs={false}
