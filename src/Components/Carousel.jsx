@@ -6,7 +6,7 @@ export default function MyCarousel({ items }) {
     return (
         <div className="Carousel">
             <Carousel
-                // autoPlay={true}
+                 autoPlay={true}
                 centerSlidePercentage={100}
                 infiniteLoop
                 swipeable
@@ -14,8 +14,8 @@ export default function MyCarousel({ items }) {
                 showStatus={false}
                 emulateTouch
                 thumbWidth={100}
-                interval={2000}
-                transitionTime={500}
+                interval={2200}
+                transitionTime={600}
                 useKeyboardArrows
                 stopOnHover
                 showThumbs={false}
