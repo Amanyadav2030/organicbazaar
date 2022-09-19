@@ -1,6 +1,3 @@
-.container{
-    
-}
 .box div{
     border: none;
 }
@@ -21,4 +18,4 @@
 .box li:hover,.same:hover{
     text-decoration: underline;
     transform: translate(10px, 0px);
-};
+}

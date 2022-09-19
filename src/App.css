@@ -183,7 +183,7 @@ li{
 #findSolution .carousel-slider{
   padding-bottom: 37px;
   padding-top: 20px;
-};
+}
 #findSolution{
   padding: 17px 12px;
 }
@@ -209,7 +209,7 @@ li{
 #SpotLight .carousel-slider{
   padding-bottom: 37px;
   padding-top: 20px;
-};
+}
 #SpotLight{
   padding: 17px 12px;
 
@@ -336,7 +336,7 @@ li{
 #category{
   border: 1px solid transparent;
   width: 54rem;
-};
+}
 
 #sort select{
   outline: none;
