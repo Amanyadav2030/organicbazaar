@@ -7,7 +7,7 @@ export default function SameCarousel({ items }) {
     return (
         <div className="Carousel">
             <Carousel
-                // autoPlay={true}
+                autoPlay={true}
                 centerSlidePercentage={30}
                 centerMode
                 infiniteLoop

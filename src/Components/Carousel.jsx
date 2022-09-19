@@ -6,7 +6,7 @@ export default function MyCarousel({ items }) {
     return (
         <div className="Carousel">
             <Carousel
-                // autoPlay={true}
+                autoPlay={true}
                 centerSlidePercentage={100}
                 infiniteLoop
                 swipeable
