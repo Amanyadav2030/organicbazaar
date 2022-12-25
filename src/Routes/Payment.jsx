@@ -1,11 +1,11 @@
 import { Box, Button, HStack, useToast, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cards from "react-credit-cards";
 import styles from "./Payment.module.css";
-import "react-credit-cards/es/styles-compiled.css";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCheckoutAPI } from "../store/checkout/Checkout.action";
+// import Cards from "react-credit-cards";
+// import "react-credit-cards/es/styles-compiled.css";
 export default function Payment() {
     const [paymentData, setPaymentData] = useState({
         name: "",
@@ -87,13 +87,13 @@ export default function Payment() {
                 </VStack>
 
                 <VStack className={styles.creditCard} id='credit' w={['100%', '80%', '40%']} align={'start'} justify={'start'}>
-                    <Cards
+                    {/* <Cards
                         number={paymentData.credit}
                         name={paymentData.name}
                         expiry={paymentData.year}
                         cvc={paymentData.cvc}
                         focused={focus}
-                    />
+                    /> */}
                 </VStack>
 
             </HStack>
