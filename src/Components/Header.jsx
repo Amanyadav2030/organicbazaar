@@ -97,12 +97,12 @@ export default function Header() {
                                 size='xl'
                             /> : data?.map((el) => (
                                 <>
-                                <CartCard stock={el.productId.stock} brand={el.productId.brand} Img={el.productId.Img} qty={el.quantity} realPrice={el.productId.realPrice} disPrice={el.productId.disPrice} key={el._id} id={el._id} data={el} />
+                                    <CartCard stock={el.productId.stock} brand={el.productId.brand} Img={el.productId.Img} qty={el.quantity} realPrice={el.productId.realPrice} disPrice={el.productId.disPrice} key={el._id} id={el._id} data={el} />
                                 </>
                             ))}
                         </DrawerBody>
                         <DrawerFooter>
-                            <Button disabled={data.length == 0} fontSize={['16px', '18px', '21px']} w={['91%']} h={['36px', '40px', '46px']} onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT  <span className={styles.total}>₹{total}.00</span></Button>
+                            <Button disabled={data.length == 0} fontSize={['16px', '18px', '21px']} w={['95%', '91%', '91%']} h={['39px', '40px', '46px']} onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT  <span className={styles.total}>₹{total}.00</span></Button>
                         </DrawerFooter>
                     </DrawerContent>
                 </Drawer>
