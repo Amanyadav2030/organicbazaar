@@ -1,9 +1,5 @@
 .container{
     border-bottom: 2px solid #d3d4d5;
-    display: flex;
-    justify-content: space-between;
-    padding: 7px 0px;
-    align-items: center;
 }
 ::-webkit-scrollbar {
     width: 10px;
@@ -20,16 +16,11 @@
   }
   
 .Image{
-    width: 127px;
-    padding: 3px;
     border-right: 1px solid #d3d4d5;
 }
 
 .prbox{
-    display: flex;
     border: 1px solid transparent;
-    justify-content: space-between;
-    align-items: center;
     padding-top: 14px;
 }
 .prices{
@@ -44,14 +35,10 @@
     margin-left: 6px;
 }
 .Box{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
     border: 1px solid transparent;
 }
 .cartName{
   white-space: nowrap; 
-  font-size: 18px;
   font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis; 
@@ -65,19 +52,10 @@
     background-color: #e5f0da;
     cursor: text;
 }
-.addremoveBox{
-    display: flex;
-    padding: 3px;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .addremoveBox svg{
     width: 28px;
     height: 23px;
-}
-.counter{
-    display: flex;
-    height: 31px;
 }
 .btn1{
     border: 1px solid #475d4b;
@@ -100,13 +78,11 @@
     height: 100%;
 }
 .checkoutBtn{
-    width: 91%;
     background: #475d4b !important;
     margin: auto;
-    height: 46px !important;
+    /* height: 46px !important; */
     border-radius: 5px !important;
     color: #e5f0da;
-    font-size: 21px !important;
     font-weight: 600 !important;
     position: relative;
 }
@@ -125,9 +101,12 @@
 }
 /* Media query start from here */
 @media only screen and (max-width: 600px) {
-   
     .total{
+        font-size: 15px!important;
+        position: absolute;
         right: 32px;
+        width: 45px;
+        display: flex;
+        gap: 10px;
     }
-    
    }

@@ -1,30 +1,20 @@
 
 .InfoContainer{
     border: 1px solid transparent;
-    padding: 52px;
-    width: 43%;
     background-color: #fafafa;
 }
-.itemsBox{
+.itemsBox{ 
    border-bottom: 2px solid  gray;
-        display: flex;
-    flex-direction: column;
-    gap: 22px;
 }
 .item{
-    display: flex;
     border: 1px solid transparent;
-    align-items: center;
-    justify-content: space-between;
     position: relative;
 }
 .item img{
-    width: 79px;
     border-radius: 10px;
 }
 .brand{
     border: 1px solid transparent;
-    width: 236px;
     font-weight: 500;
 }
 .qty{

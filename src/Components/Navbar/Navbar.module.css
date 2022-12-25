@@ -8,6 +8,26 @@
     gap: 4px;
     align-items: center;
 } 
+.scroll {
+    float: left;
+    width: 100px;
+    color: white;
+    overflow-x: scroll;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background-color: rgb(44, 19, 56);
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+    background-color: rgb(44, 19, 56);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: #c9dfba;
+    border: 1px solid #c9dfba;
+}
 .Floating{
     display: flex;
     border-radius: 8px;

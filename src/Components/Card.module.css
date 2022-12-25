@@ -26,48 +26,17 @@
  }
  
 
-.brand{
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.6px;
-    width: 87%;
-    border: 1px solid transparent;
-    margin: auto;
+.brand,.title{
+    line-height: 1.5rem;
     cursor: pointer;
 } 
-.title{
-    letter-spacing: 0.6px;
-    width: 86%;
-    margin: auto;
-    cursor: pointer;
-}
 .btn{
-    width: 100%;
-    background: #475d4b;
-    color: #e5f0da;
-    border: 1px solid transparent;
-    font-size: 20px;
-    font-weight: 600;
-    padding: 7px 5px;
     border-radius: 11px;
     cursor: pointer;
 }
 
-.prbox{
-
-    display: flex;
-    border: 1px solid transparent;
-    justify-content: space-between;
-    align-items: center;
-    width: 89%;
-    padding-top: 6px;
-    margin: 5px auto;
-}
 .prices{
-    border: 1px solid transparent;
-    font-size: 21px;
     font-weight: 600;
-
 }
 .prices span{
     text-decoration: line-through;
@@ -91,3 +60,12 @@
     top: 2px;
 
 }
+
+@media only screen and (max-width: 600px) {
+    p{
+        margin-top: 0rem !important;
+    }
+    .prices span{
+        font-size: 14px;
+    }
+   }

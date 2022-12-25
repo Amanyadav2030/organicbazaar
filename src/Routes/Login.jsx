@@ -9,24 +9,26 @@ import {
     AlertTitle,
     AlertDescription,
     useToast,
+    HStack,
+    VStack,
+    Button,
 } from '@chakra-ui/react'
-import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { AppContext } from "../Context/AppContext";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { authLoginApi } from "../store/auth/auth.action";
 
 export default function Login() {
     const redirect = useNavigate();
-
-    const { isAuth, handleLogin } = useContext(AppContext);
-
-    const [alert, setAlert] = useState(false);
+    const { error, isAuth } = useSelector((auth) => auth.authData);
+    const dispatch = useDispatch()
     const toast = useToast();
     const [check, setCheck] = useState({
         email: '',
         password: ''
     });
-    let info = JSON.parse(localStorage.getItem('info')) || {};
+    console.log(isAuth)
     const handleFocus = (event) => {
         event.target.placeholder = "";
     };
@@ -39,22 +41,17 @@ export default function Login() {
     };
     const submitForm = (event) => {
         event.preventDefault();
-        if (check.email == info.email && check.password == info.password) {
-            toast({
-                position: 'bottom-right',
-                title: `Login Successfully`,
-                status: 'success',
-                duration: 4000,
-                isClosable: true,
-            });
-            handleLogin(true);
-            setTimeout(() => {
-                redirect('/');
-            }, 3000);
-        } else {
-            setAlert(true);
-        }
-
+        dispatch(authLoginApi(check));
+    }
+    if (isAuth) {
+        toast({
+            position: 'bottom-right',
+            title: `Login succesesfull`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        });
+        return <Navigate to={'/'} />
     }
 
     return (
@@ -62,26 +59,27 @@ export default function Login() {
             <Header />
             <Navbar />
             <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
-            <div id="Form">
-                <form className={styles.Form} onSubmit={submitForm}>
-                    <Heading className={styles.header}>Login</Heading>
-                    {alert && <Alert status='error'>
-                        <AlertIcon />
-                        <AlertTitle>Invalid Details</AlertTitle>
-                        <AlertDescription>Incorrect email or password</AlertDescription>
-                    </Alert>
-                    }
-                    <div className={styles.inputDiv}>
-                        <input type="email" onChange={handleChange} name="email" id="" onBlur={(event) => event.target.placeholder = 'Email'} onFocus={handleFocus} placeholder="Email" className={styles.inputs} />
-                        <input type="password" onChange={handleChange} name="password" id="" onBlur={(event) => event.target.placeholder = 'Password'} onFocus={handleFocus} placeholder="Password" className={styles.inputs} />
-                        <p className={styles.underline}>Forgot your password?</p>
-                    </div>
+            <HStack p={['1.8rem 0rem', '3rem 0rem', '3rem 0rem']} justify={'center'} w={'100%'}>
+                <form style={{ width: '100%' }} onSubmit={submitForm}>
+                    <VStack w={['90%', '80%', '40%']} m={'auto'}>
+                        <Heading fontSize={['36px', '46px']} fontWeight={'400'} className={styles.header}>Login</Heading>
+                        {error && <Alert w={'97%'} status='error'>
+                            <AlertIcon />
+                            <AlertTitle>Invalid Details</AlertTitle>
+                            <AlertDescription>Incorrect email or password</AlertDescription>
+                        </Alert>
+                        }
+                        <div className={styles.inputDiv}>
+                            <input type="email" onChange={handleChange} name="email" id="" onBlur={(event) => event.target.placeholder = 'Email'} onFocus={handleFocus} placeholder="Email" className={styles.inputs} />
+                            <input type="password" onChange={handleChange} name="password" id="" onBlur={(event) => event.target.placeholder = 'Password'} onFocus={handleFocus} placeholder="Password" className={styles.inputs} />
+                            <p className={styles.underline}>Forgot your password?</p>
+                        </div>
 
-                    <input className={styles.btn} type="submit" value="Sign in " />
-                    <p className={styles.underline} onClick={() => redirect('/signup')}>Create account</p>
-
+                        <Button fontSize={['15px', '20px']} p={['1rem', '1.3rem', '1.8rem']} w={['65%', '50%', '40%']} className={styles.btn} type="submit" >Sign in</Button>
+                        <p className={styles.underline} onClick={() => redirect('/signup')}>Create account</p>
+                    </VStack>
                 </form>
-            </div>
+            </HStack>
             <Footer />
         </div>
     )

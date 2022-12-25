@@ -10,20 +10,17 @@
     border: 1px solid transparent;
     padding: 50px 4px;
 }
+form> div{
+    width:100%;
+}
 .Payment{
     border: 1px solid transparent;
-    width: 56%;
-    display: flex;
     padding: 31px 48px;
-    flex-direction: column;
-    /* gap: 71px; */
     gap: 10px;
 }
 .Payment input{
-    border: 1px solid;
-   
+    border: 1px solid;  
     padding: 13px 17px;
-
     font-size: 16px;
     width: 95%;
     border-radius: 6px;
@@ -41,12 +38,8 @@
     font-size: 22px;
     font-weight: 500;
 }
-.Cvv{
-    gap: 25px;
-    display: flex;
-}
-.Cvv div{
-    width: 48%;
+form{
+    width:100%;
 }
 .header img{
     width: 200px;
@@ -54,18 +47,23 @@
     border: none;
 }
 .Payment button{
-    padding: 13px 20px;
     border: 1px solid transparent;
     font-weight: 700;
     border-radius: 7px;
-    cursor: pon;
     background: #475d4b;
     cursor: pointer;
     font-size: 21px;
     color: white;
-    /* margin: auto; */
-    width: 97%;
 }
 .Payment button:disabled{
     background-color: #77877a;
 }
+@media only screen and (max-width: 600px) {
+    .Payment input{
+        border: 1px solid;  
+        padding: 11px 17px;
+        font-size: 16px;
+        width: 96%;
+        border-radius: 6px;
+    }
+    }

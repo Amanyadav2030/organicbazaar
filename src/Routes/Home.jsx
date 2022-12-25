@@ -1,4 +1,4 @@
-import { Divider } from "@chakra-ui/react";
+import { Divider, Image } from "@chakra-ui/react";
 import MyCarousel from "../Components/Carousel";
 import Header from "../Components/Header";
 import Headline from "../Components/Headline";
@@ -146,7 +146,7 @@ export default function Home() {
                 <MyCarousel items={banner} />
             </div>
             <div id="giftbox" >
-                <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Untitled_design_desktop_1900x.png?v=1659612770" alt="giftbox" />
+                <Image h={['132px', 'auto', 'auto']} src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Untitled_design_desktop_1900x.png?v=1659612770" alt="giftbox" />
             </div>
             <Headline text={"IN THE SPOTLIGHT"} />
             <div id="SpotLight">

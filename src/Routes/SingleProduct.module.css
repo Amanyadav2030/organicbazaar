@@ -1,7 +1,3 @@
-.container{
-    border: 1px solid transparent;
-    display: flex;
-}
 .breadcrumb{
     margin-top: 23px;
     font-size: 20px;
@@ -9,19 +5,10 @@
     margin: 23px auto 0px auto;
 }
 .imgsection{
-    border: 1px solid transparent;
-    width: 55%;
-    position: relative;
+        position: relative;
 }
 .infosection{
     border: 1px solid transparent;
-    width: 43%;
-    padding: 23px;
-  
-}
-.Image{
-    width: 90%;
-    margin: auto;
 }
 .bestseller{
     width: 175px;
@@ -30,14 +17,11 @@
     position: absolute;
 }
 .brand{
-    font-size: 21px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 .title{
-    font-size: 21px;
     letter-spacing: 0.5px;
-    
 }
 .prbox{
     display: flex;
@@ -104,13 +88,21 @@
 }
 .cartbtn{
     width: 100%;
-    background: #475d4b;
+    background: #475d4b !important;
     color: #e5f0da;
     border: 1px solid transparent;
     margin: 35px 0px;
     font-size: 20px;
     font-weight: 600;
-    padding: 10px 5px;
+    border-radius: 5px;
+}
+.cartbtn:hover{
+    width: 100%;
+    background: #384a3b !important;
+    color: #e5f0da;
+    border: 1px solid transparent;
+    margin: 35px 0px;
+    font-weight: 600;
     border-radius: 5px;
 }
 .offerLogo{

@@ -15,7 +15,7 @@ import {
     AccordionIcon,
     useDisclosure,
 } from '@chakra-ui/react';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Menubar.module.css';
 

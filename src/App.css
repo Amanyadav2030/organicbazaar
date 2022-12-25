@@ -230,12 +230,6 @@ li{
   cursor: pointer;
 }
 
-#Form{
-  display: flex;
-  justify-content: center;
-  margin: 4rem;
-}
-
 .userAccount svg{
   width: 1.8rem;
   height: 2rem;
@@ -251,8 +245,6 @@ li{
 }
 /* Footer css  */
 #footer{
-  display: flex;
-  padding: 56px 26px;
   background-color: #f1f7ec ; 
 }
 .FooterHead{
@@ -261,17 +253,6 @@ li{
   font-weight: 700;
   font: 20px;
   border-bottom: 1px solid transparent;
-}
-#footer ul{
-  border: 1px solid transparent;
-  display: flex;
-  gap: 13px;
-  align-items: self-start;
-  flex-direction: column;
-
-}
-#footer ul li{
-  color: rgb(40, 38, 38);
 }
 #div1{
   padding: 13px 22px;
@@ -285,7 +266,6 @@ li{
 #div2{
   display: flex;
   /* padding: 12px 10px; */
-  padding: 13px 15px;
   border: 1px solid transparent;
   gap: 52px;
 }
@@ -305,15 +285,6 @@ li{
   background-color:#475d4b ;
   color: #e5f0da;
 }
-#last{
-  display: flex;
-  background-color: #475d4b;
-}
-#Productdetails{
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
 .Bars{
   width: 2rem;
   height: 1.6rem;
@@ -324,52 +295,10 @@ li{
   height: 2rem;
   cursor: pointer;
 }
-#Productdetails img{
-  width: 25px;
-}
-#Productdetails h1:first-child{
-  display: flex;
-  font-size: 20px;
-  font-weight: 500;
-  gap: 10px;
-}
+
 #category{
   border: 1px solid transparent;
   width: 54rem;
-}
-
-#sort select{
-  outline: none;
-  cursor: pointer;
-}
-#sort select option{
-  outline: none;
-  cursor: pointer;
-}
-#ProductsGrid{
-    width:225rem;
-}
-#sort{
-  letter-spacing: 1px;
-  color: gray;
-}
-/* #ourproducts{
-  border: 1px solid transparent;
-  width: 75%;
-}; */
-#totalBox{
-  display: flex;
-    margin: 32px auto;
-    justify-content: space-between;
-    align-items: center;
-}
-#totalBox p:last-child{
-  font-size: 16px;
-  color: gray;
-  letter-spacing: 0.4px;
-}
-#totalBox p:first-child{
-  font-size: 20px;
 }
 
 
@@ -389,22 +318,42 @@ li{
 
 
 
-
-
-/* overflow: hidden; */
-/* text-overflow: ellipsis; */
-
+/* Credit card css  */
+#credit .rccs__card {
+  height: 224.873px !important;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.4s linear;
+  width: 372px !important;
+}
 
 .userAccount2{
   display: none;
 }
 
 
-
 /* Media query start from here */
 @media only screen and (max-width: 600px) {
-  .Nav{
-   display: none;
+ #credit .rccs__card {
+  height: 182.873px !important;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.4s linear;
+  width: 290px !important;
+}
+  #SpotLight img{
+    width: 65%;
+    height: auto;
+    border-radius: 8px;
+  }
+  #navbarLinks{
+    display: none;
+  }
+  #findSolution img{
+    width:65%;
+    height: auto;
   }
   #category{
     display: none;

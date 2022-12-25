@@ -2,9 +2,8 @@ import Header from "../Components/Header";
 import Navbar from "../Components/Navbar/Navbar";
 import styles from './SingleProduct.module.css';
 import { FaStar } from 'react-icons/fa'
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../Components/Footer";
-import { getsingleData } from "../api/api";
 import { useParams } from "react-router-dom";
 import {
     Breadcrumb,
@@ -12,67 +11,80 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbSeparator,
-    useToast
+    useToast,
+    HStack,
+    Image,
+    Box,
+    Text,
+    Button
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { AppContext } from "../Context/AppContext";
-// const data = {
-//     id: 1,
-//     Image: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-01_1_Medium_a7654ecf-8f6c-4b46-9d27-f3c5e8a30f28_900x.jpg?v=1659101350",
-//     Hover: "https://cdn.shopify.com/s/files/1/0054/6665/2718/products/Exfoliate-02Medium_533x.jpg?v=1659101350",
-//     category: "body",
-//     brand: "Exfoliate Face And Body Scrub Grit, 75gm",
-//     disPrice: 220,
-//     realPrice: 275,
-//     rating: "4.8",
-//     title: "Gentle Exfoliation, Nourishing & Skin Brightening",
-//     status: true
-// };
-const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+import { useDispatch, useSelector } from "react-redux";
+import { addSingleCartAPI, getSingleAPI, getSingleCartAPI } from "../store/single/product_details.action";
 export default function SingleProducts() {
-    const [count, setCount] = useState(1);
-    const [data, setData] = useState({});
-    const params = useParams();
-    const { handleCartItems, cartItems } = useContext(AppContext);
-    const toast = useToast()
+    const { isAuth, token } = useSelector((store) => store.authData)
+    const { singleData, loading2, loading, data } = useSelector((store) => store.singleData);
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const toast = useToast();
+    const [quantity, setQuantity] = useState(data[0]?.quantity || 1);
+    const [count, setCount] = useState(0);
     useEffect(() => {
-        getsingleData(params.id).then((res) => {
-            setData(res.data);
-        });
-    }, [params.id]);
-    const checkExist = (id, cartItems) => {
-        let Filter = cartItems.filter(el => el.id == id);
-        return Filter.length >= 1 ? true : false;
+        dispatch(getSingleCartAPI(token, id));
+        dispatch(getSingleAPI(id));
+    }, [dispatch, quantity, count]);
+    useEffect(() => {
+
+    }, [quantity, count])
+    const checkExist = (id) => {
+        console.log(id, data, '********')
+        let filtered = data.filter((el) => id == el.productId._id);
+        return filtered.length == 0 ? false : true;
     }
     const handleAddToCart = () => {
-        const { Image, brand, disPrice, realPrice, rating, id } = data;
-        const addItem = { Image, brand, disPrice, realPrice, rating, id };
-        if (checkExist(addItem.id, cartItems)) {
+        setCount(count + 1)
+        if (!isAuth) {
             toast({
-                title: `Item Already Exist`,
+                title: `Please login First`,
                 variant: 'subtle',
                 duration: 2000,
+                status: 'error',
+                isClosable: true,
+            });
+            return;
+        }
+        if (checkExist(id)) {
+            toast({
+                title: `Item Already Exist Please Increase Quantity`,
+                variant: 'subtle',
+                duration: 3000,
                 isClosable: true,
             })
         } else {
-            handleCartItems(addItem);
+            dispatch(addSingleCartAPI
+                (token, {
+                    productId: id
+                }))
+            dispatch(getSingleCartAPI(token, id))
+            toast({
+                title: `Item Added Successfully`,
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            })
         }
     };
-    // const handleAddToCart = () => {
-    // const { Image, brand, disPrice, realPrice, rating, id } = data;
-    // const addItem = { Image, brand, disPrice, realPrice, rating, id };
-    //     if (checkExist(addItem.id, cartItems)) {
-    //         toast({
-    //             title: `Item Already Exist`,
-    //             variant: 'subtle',
-    //             duration: 2000,
-    //             isClosable: true,
-    //         })
-    //     } else {
-    //         cartItems.push(addItem);
-    //         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    //     };
-    // };
+    const handleQuantity = (value) => {
+        setCount(count + 1)
+        setQuantity(data[0]['quantity']);
+        setQuantity(quantity + value);
+        console.log((quantity + value) - (data.length != 0 ? data[0]['quantity'] : 1), 'quantity');
+        dispatch(addSingleCartAPI(token, {
+            productId: id,
+            quantity: (quantity + value) - (data.length != 0 ? data[0]['quantity'] : 1)
+        }))
+        dispatch(getSingleCartAPI(token, id))
+    };
     return (
         <div>
             <Header />
@@ -90,27 +102,27 @@ export default function SingleProducts() {
                     <BreadcrumbLink href='#'>Product</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <div className={styles.container}>
-                <div className={styles.imgsection}>
-                    <img src={data.Image} className={styles.Image} alt="" />
-                    {data.status && <img className={styles.bestseller} src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Best-sellers-tag.png?v=10809169506792369733" alt="" />}
-                </div>
-                <div className={styles.infosection}>
-                    <h2 className={styles.brand}>{data.brand}</h2>
-                    <h2 className={styles.title}>{data.title}</h2>
+            <HStack flexDirection={['column', 'column', 'row']}   >
+                <Box className={styles.imgsection} w={['100%', '100%', '55%']}>
+                    <Image src={singleData.Img} m={'auto'} w={['90%']} />
+                    {singleData.status && <img className={styles.bestseller} src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Best-sellers-tag.png?v=10809169506792369733" alt="" />}
+                </Box>
+                <Box w={['100%', '100%', '43%']} p={['12px', '20px', '23px']} className={styles.infosection}>
+                    <Text fontSize={['16px', '18px', '21px']} className={styles.brand}>{singleData.brand}</Text>
+                    <Text fontSize={['16px', '18px', '21px']} className={styles.title}>{singleData.title}</Text>
                     <div className={styles.prbox}>
-                        <p className={styles.prices}>{`₹${data.disPrice}.00`} <span>{`₹${data.realPrice}.00`}</span></p>
-                        <p className={styles.rating}><span>{`${data.rating} `}</span><FaStar /></p>
+                        <p className={styles.prices}>{`₹${singleData.disPrice}.00`} <span>{`₹${singleData.realPrice}.00`}</span></p>
+                        <p className={styles.rating}><span>{`${singleData.rating} `}</span><FaStar /></p>
                     </div>
                     <div id="counter">
                         <p className={styles.tax}>( inclusive of all taxes )</p>
                         <div className={styles.counter}>
-                            <button onClick={() => setCount(count - 1)} disabled={count == 1} className={styles.btn1}>-</button>
-                            <button className={styles.count}>{count}</button>
-                            <button onClick={() => setCount(count + 1)} className={styles.btn2}>+</button>
+                            <button onClick={() => handleQuantity(-1)} disabled={quantity == 1} className={styles.btn1}>-</button>
+                            <button className={styles.count}>{quantity}</button>
+                            <button onClick={() => handleQuantity(1)} disabled={quantity == singleData.quantity} className={styles.btn2}>+</button>
                         </div>
                     </div>
-                    <button onClick={handleAddToCart} className={styles.cartbtn}>ADD TO CART</button>
+                    <Button p={['1.5rem']} colorScheme={'twitter'} isLoading={loading2} loadingText='Adding' onClick={handleAddToCart} className={styles.cartbtn}>ADD TO CART</Button>
                     <div id="offers">
                         <p className={styles.offerLogo}>offers</p>
                         <div className={styles.discountbox}>
@@ -128,10 +140,8 @@ export default function SingleProducts() {
                             Get 4 products for the price of 3! Just add 4 products to your cart and use the code '4FOR3'.  Cannot be clubbed with any other offers or Bella Cash. Offer not valid on Boxes.
                         </p>
                     </div>
-                </div>
-            </div>
-
-
+                </Box>
+            </HStack>
             <Footer />
         </div>
     )

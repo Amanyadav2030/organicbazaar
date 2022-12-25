@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { getAllProduct } from "../api/api";
 import Card from "../Components/Card";
 import Catagories from "../Components/Categories";
 import Footer from "../Components/Footer";
@@ -13,7 +12,11 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbSeparator,
-    useToast
+    useToast,
+    HStack,
+    Image,
+    Text,
+    Select
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
@@ -23,14 +26,7 @@ export default function Perfume() {
 
     useEffect(() => {
         setIsLoading(true);
-        getAllProduct().then(res => {
-            const Filter = res.data.filter((el) => el.category === 'perfume');
-            setData([...Filter]);
-            setIsLoading(false);
-        }).catch((err) => {
-            console.log(err)
-            setIsLoading(false);
-        })
+       
     }, []);
     const handleSort = (event) => {
         const { value } = event.target;
@@ -57,20 +53,24 @@ export default function Perfume() {
                     <BreadcrumbLink href='/perfumes'>Perfumes</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <div id="Productdetails">
-                <h1><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPjkFaNSTkWAQPmERF6KZx_Ek4h9--FoHCA&usqp=CAU" alt="" /> Refine by</h1>
-                <h1>
+            <HStack p={'1rem'} justify={'space-between'} >
+                <HStack display={['none', 'flex', 'flex']}>
+                    <Image w={'25px'} h={'25px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPjkFaNSTkWAQPmERF6KZx_Ek4h9--FoHCA&usqp=CAU" alt="" />
+                    <Text fontWeight={'bold'} fontSize={'1.2rem'}>Refine by</Text>
+                </HStack>
+                <Text fontWeight={'bold'} fontSize={['0.9rem', '1rem', '1.2rem']}>
                     {`${data.length} products`}
-                </h1>
-                <div id="sort">
-                    Sortby:  <select id="" onChange={handleSort}>
+                </Text>
+                <HStack id="sort">
+                    <Select placeholder="Sort by" onChange={handleSort}>
                         <option value=""> Featured</option>
+                        <option value="bestselling"> Best Selling</option>
                         <option value="lth">Price, Low to High</option>
                         <option value="htl">Price, High to Low</option>
-                    </select>
-                </div>
+                    </Select>
+                </HStack>
 
-            </div>
+            </HStack>
             <div className={styles.container}>
                 <div id="category">
                     <Catagories />

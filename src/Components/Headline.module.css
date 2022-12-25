@@ -1,5 +1,4 @@
 .Headline{
-    font-size: 27px;
     letter-spacing: 0.9px;
     font-weight: 700;
     color: #475d4b;
@@ -14,3 +13,8 @@
     height: 2px;
     border: 1px solid #e5f0da;
 }
+@media only screen and (max-width: 600px) {
+   .dashes{
+    width: 40px;
+   }
+   }

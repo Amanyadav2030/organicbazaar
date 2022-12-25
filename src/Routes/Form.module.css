@@ -1,19 +1,9 @@
 .btn{
-    background-color: #475d4b;
+    background-color: #475d4b !important;
     cursor: pointer;
-    width: 14em;
-    padding: 10px 4px !important;
     color: #e5f0da;
-    font-size: 18px;
     font-weight: 700;
-    border-radius: 12px;
-}
-.Form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 29rem; 
-    gap: 27px;
+    border-radius: 10px !important;
 }
 .inputDiv{
     display: flex;
@@ -28,7 +18,7 @@
     width: 100%;
     border-radius: 0px;
     border: 1.5px solid #475d4b;
-    padding: 0.7rem 1rem !important;
+    padding: 0.9rem 1rem !important;
     font-size: 18px;
     letter-spacing: 1.2px;
     outline: none;
@@ -45,10 +35,6 @@
 .underline:hover{
     border-bottom: 1.7px solid;
 }
-.header{
-    font-weight: 400 !important; 
-    font-size: 46px !important;
-}
 .inputDiv2{
     display: flex;
     flex-direction: column;
@@ -60,9 +46,12 @@
 }
 /* Media query start from here */
 @media only screen and (max-width: 600px) {
-   
-    .header{
-        font-size: 36px !important;
-    }
     
-   }
+    .inputs{
+        width: 100%;
+        border: 1.5px solid #475d4b;
+        padding: 0.5rem 1rem !important;
+        font-size: 16px;
+        letter-spacing: 1.1px;        
+    }
+}
