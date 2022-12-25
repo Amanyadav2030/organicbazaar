@@ -40,16 +40,19 @@ export default function AllProducts() {
         <div>
             <Header />
             <Navbar />
-            <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
-            <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-                </BreadcrumbItem>
+            <Box w={'100%'}>
+                <Text color={'white'}>a</Text>
+                <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
+                <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                    </BreadcrumbItem>
 
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/allproducts'>AllProducts</BreadcrumbLink>
-                </BreadcrumbItem>
-            </Breadcrumb>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href='/allproducts'>AllProducts</BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+            </Box>
             <HStack p={'1rem'} justify={'space-between'} >
                 <HStack display={['none', 'flex', 'flex']}>
                     <Image w={'25px'} h={'25px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPjkFaNSTkWAQPmERF6KZx_Ek4h9--FoHCA&usqp=CAU" alt="" />
@@ -59,7 +62,7 @@ export default function AllProducts() {
                     {`${data.length} products`}
                 </Text>
                 <HStack id="sort">
-                    <Select placeholder="Sort by" onChange={handleSort}>
+                    <Select  onChange={handleSort}>
                         <option value=""> Sort by price</option>
                         <option value="asc">Low to High</option>
                         <option value="desc">High to Low</option>

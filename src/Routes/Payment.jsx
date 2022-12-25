@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./Payment.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { updateCheckoutAPI } from "../store/checkout/Checkout.action";
-// import Cards from "react-credit-cards";
+import Info from "../Components/Info";
+// import Cards from "react-credit-cards-2";
 // import "react-credit-cards/es/styles-compiled.css";
 export default function Payment() {
     const [paymentData, setPaymentData] = useState({
@@ -86,7 +87,7 @@ export default function Payment() {
                     </form>
                 </VStack>
 
-                <VStack className={styles.creditCard} id='credit' w={['100%', '80%', '40%']} align={'start'} justify={'start'}>
+           
                     {/* <Cards
                         number={paymentData.credit}
                         name={paymentData.name}
@@ -94,7 +95,7 @@ export default function Payment() {
                         cvc={paymentData.cvc}
                         focused={focus}
                     /> */}
-                </VStack>
+                    <Info />
 
             </HStack>
 

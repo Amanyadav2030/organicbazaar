@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartAPI } from "../store/cart/Cart.action";
 import styles from "./Info.module.css";
-export default function Info() {
+export default function Info() { 
     const { isAuth, token } = useSelector((store) => store.authData);
     const { loading, error, data } = useSelector((store) => store.cartData);
     const dispatch = useDispatch();

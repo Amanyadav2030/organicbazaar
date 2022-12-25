@@ -16,43 +16,43 @@ import {
     HStack,
     Image,
     Text,
-    Select
+    Select,
+    Spinner,
+    Box
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductAPI } from "../store/products/product.action";
 
 export default function Bestseller() {
-    const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
+    const { data, loading, error } = useSelector(store => store.productData);
+    const dispatch = useDispatch();
+    const [sort, setSort] = useState('asc');
     useEffect(() => {
-        setIsLoading(true);
-       
-    }, []);
+        dispatch(getProductAPI(sort));
+        console.log(data, loading)
+    }, [dispatch, sort]);
     const handleSort = (event) => {
-        const { value } = event.target;
-        if (value === 'lth') {
-            data.sort((a, b) => a.disPrice - b.disPrice);
-            setData([...data]);
-
-        } else if (value === 'htl') {
-            data.sort((a, b) => b.disPrice - a.disPrice);
-            setData([...data]);
-        }
-
+        if (event.target.value == '') return;
+        setSort(event.target.value);
     };
     return (
         <div>
             <Header />
             <Navbar />
-            <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
-                </BreadcrumbItem>
+            <Box w={'100%'}>
+                <Text color={'white'}>a</Text>
+                <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
+                <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                    </BreadcrumbItem>
 
-                <BreadcrumbItem>
-                    <BreadcrumbLink href='/bestseller'>BestSellers</BreadcrumbLink>
-                </BreadcrumbItem>
-            </Breadcrumb>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href='/bestseller'>BestSellers</BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+            </Box>
             <HStack p={'1rem'} justify={'space-between'} >
                 <HStack display={['none', 'flex', 'flex']}>
                     <Image w={'25px'} h={'25px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcPjkFaNSTkWAQPmERF6KZx_Ek4h9--FoHCA&usqp=CAU" alt="" />
@@ -63,10 +63,9 @@ export default function Bestseller() {
                 </Text>
                 <HStack id="sort">
                     <Select placeholder="Sort by" onChange={handleSort}>
-                        <option value=""> Featured</option>
-                        <option value="bestselling"> Best Selling</option>
-                        <option value="lth">Price, Low to High</option>
-                        <option value="htl">Price, High to Low</option>
+                        <option value=""> Sort by price</option>
+                        <option value="asc">Low to High</option>
+                        <option value="desc">High to Low</option>
                     </Select>
                 </HStack>
 
@@ -75,10 +74,18 @@ export default function Bestseller() {
                 <div id="category">
                     <Catagories />
                 </div>
-                <div className={styles.products} style={{ width: "225rem" }}>
-                    {/* <Products data={data} /> */}
-                    {isLoading ? <h1 className={styles.loading}>Loading...</h1> : <Products data={data} />}
-                </div>
+                <Box className={styles.products} style={{ width: "225rem" }} >
+
+                    {loading ? <Spinner
+                        m={'auto'}
+                        display={'block'}
+                        thickness='5px'
+                        speed='0.65s'
+                        emptyColor='gray.200'
+                        color='green.400'
+                        size='xl'
+                    /> : <Products data={data} />}
+                </Box>
             </div>
             <Footer />
         </div>
