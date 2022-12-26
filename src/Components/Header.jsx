@@ -1,4 +1,4 @@
-import { Box, HStack, Icon, Image, Spinner, Text, VStack } from '@chakra-ui/react'
+import { Box, HStack, Icon, Image, Input, InputGroup, InputLeftElement, InputRightElement, Spinner, Text, VStack } from '@chakra-ui/react'
 // import { MdSettings } from 'react-icons/md'
 import {
     Drawer,
@@ -57,11 +57,15 @@ export default function Header() {
                 <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701" alt="" />
                 <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/BVL_220_x_220_480x.png?v=1653304721" alt="" />
             </div>
-            <div id='SearchBox'>
+            <HStack id='SearchBox' gap={['5px', '8px', '7px']}>
                 <FaBars className='Bars' onClick={() => setOpen(!open)} />
                 <MenuBar open={open} handleOpen={handleOpen} />
-                <input type="text" placeholder="Search for products" />
-                <FaSearch />
+                <InputGroup>
+                    <Input placeholder='Search for products' />
+                    <InputRightElement children={<FaSearch />} />
+                </InputGroup>
+                {/* <input type="text" placeholder="Search for products" />
+                <FaSearch /> */}
                 <div className='userAccount2' onClick={() => redirect('/account')}>
                     <svg className="icon icon-account2" viewBox="0 0 269.83 270" ><path d="M269.8 51.78c0-2.36-.14-4.73-.51-7.06-4-24.89-26.79-45.29-53.5-44.71-26.87.58-53.75.13-80.61.13v.12c-28.56 0-57.13-.49-85.68.15C22.71.99.05 25.05.03 51.77l.05 166.3c0 4 .64 8.09 1.59 11.98 4.56 18.9 23.37 40.21 53.89 39.95l158.69-.13c2.53 0 5.06-.16 7.6-.35 26-1.92 47.92-25.37 47.95-51.45V51.77zm-6.57 163.63c-.15 27.94-20.86 47.79-48.9 47.82h-79.57-79.57c-27.47-.04-48.29-19.62-48.52-47.13L6.64 53.91C6.85 26.41 27.52 6.65 55 6.6h159.65c27.75.04 48.4 19.92 48.58 47.64v161.18zm-67.26-18.62c-2.34-31.18-28.9-55.54-60.77-55.74-31.95-.2-58.93 24.29-61.34 55.67-.49 6.38-.04 6.86 6.57 6.87h54.2 55.21c6.12 0 6.6-.57 6.13-6.79zm-114.45-.07c-2.66-22.46 23.97-47.65 51.44-48.92 28.18-1.31 56.31 23.15 55.58 48.92H81.52zm53.71-130.47c-17.23-.14-31.01 13.32-31.27 30.55-.26 16.94 13.61 31.14 30.64 31.34 16.96.22 31.05-13.61 31.28-30.71.24-17.05-13.52-31.06-30.65-31.19zm-.41 54.98c-13.22-.04-24.17-11.03-24.11-24.2.06-13.18 11.12-24.14 24.29-24.08 13.21.07 24.17 11.09 24.11 24.25-.05 13.18-11.05 24.06-24.29 24.03z"></path></svg>
                 </div>
@@ -71,7 +75,7 @@ export default function Header() {
                 <div className='Heart'>
                     <FaHeart />
                 </div>
-            </div>
+            </HStack>
             <div id="logos2">
                 <Link to='/'> <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/BVO_220_x_220_480x.png?v=1653304683" alt="" /></Link>
                 <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701" alt="" />

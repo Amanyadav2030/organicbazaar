@@ -87,7 +87,7 @@ export default function Navbar() {
                 </Center>
                 <li><Link to='/'>BUILD A BOX</Link> </li>
             </ul>
-            <HStack background={'white !important'} p={'0.5rem'} className={styles.scroll} display={['flex', 'none', 'none']} overflow={'hidden'} overflowX={'auto'} w={['100%', '100%', null]}>
+            <HStack background={'white !important'} p={'0.5rem'} className={styles.scroll} display={['flex', 'none', 'none']} overflow={'hidden'} overflowX={'auto'} w={['97%', '100%', null]}>
                 {
                     links?.map((el) => (
                         <Badge onClick={() => redirect(el.link)} fontSize={'0.9rem'} variant='subtle' p={'0.4rem'} colorScheme='green'>

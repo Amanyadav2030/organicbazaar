@@ -100,13 +100,9 @@ li{
     cursor: pointer;
   }
   #SearchBox{
-    gap: 7px;
     display: flex;
-    border: 1px solid transparent;
-    align-items: center;
     position:relative;
     left:145px;
-
   }
   .cart{
     width: 33px;
@@ -114,13 +110,6 @@ li{
   .cart svg:hover{
     height: 2rem;
     width: 2.1rem;
-  }
-  header input{
-    padding: 6px 20px !important;
-    border: 1px solid;
-    width: 18rem;
-    outline: none;
-    border-radius: 11px;
   }
   .Heart{
     width: 33px;
@@ -376,8 +365,6 @@ li{
   }
   #SearchBox{
     left: 0px;
-    padding: 4px 6px;
-    gap: 15px;
   }
   #logos2{
     display: flex;
@@ -390,14 +377,6 @@ li{
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 4px 4px;
-  }
-  header input{
-    width: 60vw;
-    padding:5px 20px;
-  }
-  input+svg{
-    width: 26px;
-    left: 67vw;
   }
   .Heart{
     display: none;
