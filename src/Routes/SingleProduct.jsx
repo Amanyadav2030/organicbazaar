@@ -89,6 +89,7 @@ export default function SingleProducts() {
         <div>
             <Header />
             <Navbar />
+            <Text color={'white'}>a</Text>
             <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
             <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
                 <BreadcrumbItem>
