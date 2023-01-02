@@ -13,6 +13,6 @@ const rootReducer = combineReducers({
     cartData:cartReducer, 
     authData:authReducer,
     checkoutData:checkoutReducer,
+    orderData:orderReducer
 });
-// orderData:orderReducer,
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))

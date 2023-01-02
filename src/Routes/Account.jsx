@@ -10,7 +10,8 @@ import {
     VStack,
     HStack,
     Text,
-    Badge
+    Badge,
+    Skeleton
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import styles from './Account.module.css';
@@ -20,6 +21,7 @@ import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { authLogoutApi } from "../store/auth/auth.action";
+import Orders from "../Components/Orders";
 
 const getUserById = (token) => {
     return axios.get(`${import.meta.env.VITE_API_KEY}/user/info`, {
@@ -38,7 +40,9 @@ const UpdateUserById = (token, info) => {
 export default function Account() {
     const [edit, setEdit] = useState(true);
     const { token } = useSelector((store) => store.authData);
-    const dispatch = useDispatch()
+    const [isLoaded, setIsLoaded] = useState(true);
+    const dispatch = useDispatch();
+    const [orders, setOrders] = useState(false)
     const [info, setInfo] = useState({
         first_name: '',
         last_name: '',
@@ -47,9 +51,12 @@ export default function Account() {
     });
     const toast = useToast();
     useEffect(() => {
+        setIsLoaded(false)
         getUserById(token).then((res) => {
             setInfo(res.data);
+            setIsLoaded(true)
         }).catch((err) => {
+            setIsLoaded(true)
             console.log(err)
         })
     }, []);
@@ -109,8 +116,8 @@ export default function Account() {
                     </Badge>
                 </HStack>
                 <VStack display={['none', 'flex', 'flex']} className={styles.left}>
-                    <div>MY PROFILE</div>
-                    <div>MY ORDERS</div>
+                    <div onClick={() => setOrders(false)}>MY PROFILE</div>
+                    <div onClick={() => setOrders(true)}>MY ORDERS</div>
                     <div>DELIVERY ADDRESS</div>
                     <div>TOP ORDERED PRODUCTS</div>
                     <div>MY WISHLIST</div>
@@ -120,30 +127,41 @@ export default function Account() {
                     <div onClick={handleLogout}>LOG OUT</div>
                 </VStack>
                 <VStack w={['100%', '80%', '60%']} className={styles.right}>
-                    <VStack align={'center'} w={'100%'} mt={['1rem', '2rem', '3rem']} gap={['2px', '10px', '15px']} fontSize={['18px']} className={styles.editable}>
-                        <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'} >
-                            <label>First Name:</label>
-                            <input onChange={handleChange} type="text" value={info.first_name} name='first_name' readOnly={edit} />
-                        </HStack>
-                        <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
-                            <label>last Name:</label>
-                            <input onChange={handleChange} type="text" value={info.last_name} name='last_name' readOnly={edit} />
-                        </HStack>
-                        <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
-                            <label>Email:</label>
-                            <input onChange={handleChange} value={info.email} name='email' type="text" readOnly={edit} />
-                        </HStack>
-                        <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
-                            <label>Contact Number:</label>
-                            <input onChange={handleChange} type="number" value={info.contact} name='contact' readOnly={edit} />
-                        </HStack>
-                        <button onClick={() => {
-                            if (!edit) {
-                                handleUpdate();
-                            }
-                            setEdit(!edit)
-                        }}>{edit ? "Edit" : "Done"}</button>
-                    </VStack>
+                    {
+                        orders ? <Orders /> : <VStack align={'center'} w={'100%'} mt={['1rem', '2rem', '3rem']} gap={['2px', '10px', '15px']} fontSize={['18px']} className={styles.editable}>
+                            <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'} >
+                                <label>First Name:</label>
+                                <Skeleton isLoaded={isLoaded}>
+                                    <input onChange={handleChange} type="text" value={info.first_name} name='first_name' readOnly={edit} />
+                                </Skeleton>
+                            </HStack>
+                            <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
+                                <label>last Name:</label>
+                                <Skeleton isLoaded={isLoaded}>
+                                    <input onChange={handleChange} type="text" value={info.last_name} name='last_name' readOnly={edit} />
+                                </Skeleton>
+                            </HStack>
+                            <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
+                                <label>Email:</label>
+                                <Skeleton isLoaded={isLoaded}>
+                                    <input onChange={handleChange} value={info.email} name='email' type="text" readOnly={edit} />
+                                </Skeleton>
+                            </HStack>
+                            <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'}>
+                                <label>Contact Number:</label>
+                                <Skeleton isLoaded={isLoaded}>
+                                    <input onChange={handleChange} type="number" value={info.contact} name='contact' readOnly={edit} />
+                                </Skeleton>
+                            </HStack>
+                            <button onClick={() => {
+                                if (!edit) {
+                                    handleUpdate();
+                                }
+                                setEdit(!edit)
+                            }}>{edit ? "Edit" : "Done"}</button>
+                        </VStack>
+                    }
+
                 </VStack>
             </div>
             <Footer />
