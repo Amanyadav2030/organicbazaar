@@ -25,7 +25,7 @@
      transform: scale(1.1); 
  }
  
-
+ 
 .brand,.title{
     line-height: 1.5rem;
     cursor: pointer;
@@ -62,7 +62,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    p{
+   .container p{
         margin-top: 0rem !important;
     }
     .prices span{

@@ -9,7 +9,8 @@ import {
     useToast,
     VStack,
     HStack,
-    Text
+    Text,
+    Badge
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import styles from './Account.module.css';
@@ -60,7 +61,7 @@ export default function Account() {
         })
     }
     const handleUpdate = () => {
-            UpdateUserById(token, info).then((res) => {
+        UpdateUserById(token, info).then((res) => {
         }).catch((err) => {
             console.log(err.message);
         })
@@ -81,39 +82,45 @@ export default function Account() {
         <div>
             <Header />
             <Navbar />
+            <Text color={'white'} mt={'0.3rem !important'}>a</Text>
             <Divider orientation='horizontal' borderBottom={'1.9px solid #e5f0da'} />
             <Breadcrumb spacing='8px' className={styles.breadcrumb} separator={<ChevronRightIcon color='gray.500' />}>
                 <BreadcrumbItem>
                     <BreadcrumbLink href='/'>Home</BreadcrumbLink>
                 </BreadcrumbItem>
-
                 <BreadcrumbItem>
                     <BreadcrumbLink href='/account'>Account</BreadcrumbLink>
                 </BreadcrumbItem>
-
                 <BreadcrumbItem isCurrentPage>
                     <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
-            <Text mt={['0.5rem', '0rem']} className={styles.name}>{`Hello `}</Text>
+            <Text mt={['0.5rem', '0rem']} className={styles.name}>{`Hello ${info.first_name}`}</Text>
             <div className={styles.container} style={{ display: "flex" }}>
-
+                <HStack background={'white !important'} p={'0.5rem'} className={styles.scroll} display={['flex', 'none', 'none']} overflow={'hidden'} overflowX={'auto'} w={['100%', '100%', null]}>
+                    <Badge fontSize={'0.9rem'} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                        MY PROFILE
+                    </Badge>
+                    <Badge fontSize={'0.9rem'} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                        MY ORDERS
+                    </Badge>
+                    <Badge onClick={handleLogout} bgColor={'#e5f0da !important'} fontSize={'0.9rem'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                        LOGOUT
+                    </Badge>
+                </HStack>
                 <VStack display={['none', 'flex', 'flex']} className={styles.left}>
                     <div>MY PROFILE</div>
-                    <div>DELIVERY ADDRESS</div>
                     <div>MY ORDERS</div>
+                    <div>DELIVERY ADDRESS</div>
                     <div>TOP ORDERED PRODUCTS</div>
-                    <div>MY WISHLIST</div>
                     <div>MY WISHLIST</div>
                     <div>RECENTLY VIEWED</div>
                     <div>MY CASHBACK</div>
                     <div>REFER FRIEND</div>
-                    <div>CHANGE PASSWORD</div>
                     <div onClick={handleLogout}>LOG OUT</div>
-
                 </VStack>
                 <VStack w={['100%', '80%', '60%']} className={styles.right}>
-                    <VStack align={'center'} w={'100%'} mt={'3rem'} gap={['2px', '10px', '15px']} fontSize={['18px']} className={styles.editable}>
+                    <VStack align={'center'} w={'100%'} mt={['1rem', '2rem', '3rem']} gap={['2px', '10px', '15px']} fontSize={['18px']} className={styles.editable}>
                         <HStack p={['0', '0.3rem', '0.5rem']} w={['100%', '80%', '56%']} justify={'space-between'} >
                             <label>First Name:</label>
                             <input onChange={handleChange} type="text" value={info.first_name} name='first_name' readOnly={edit} />

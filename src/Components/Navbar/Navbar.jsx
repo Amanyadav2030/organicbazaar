@@ -6,7 +6,7 @@ import HairCare from './HairCare';
 import BodyCare from './BodyCare';
 import Perfumes from './Perfumes';
 import Combos from './Combos';
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { reducer } from './reducer';
 import { funBodyCare, funCombos, funHairCare, funPerfumes, funSkinCare } from './Action';
 
@@ -28,6 +28,9 @@ const links = [
 export default function Navbar() {
     const [state, dispatch] = useReducer(reducer, initState);
     const redirect = useNavigate()
+    useEffect(() => {
+        console.clear();
+    }, [])
     return (
         <nav style={{
             position: "sticky",

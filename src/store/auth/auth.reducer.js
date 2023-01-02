@@ -29,12 +29,12 @@ export const authReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 loading: false,
                 error: false,
-                token: payload,
+                token: payload.token,
                 isAuth:true
             }
         }
         case AUTH_LOGOUT_SUCCESS: { 
-             localStorage.removeItem("token")
+            localStorage.removeItem("token")
             return {
                 ...state,
                 loading: false,
