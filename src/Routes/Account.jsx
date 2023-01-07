@@ -105,10 +105,10 @@ export default function Account() {
             <Text mt={['0.5rem', '0rem']} className={styles.name}>{`Hello ${info.first_name}`}</Text>
             <div className={styles.container} style={{ display: "flex" }}>
                 <HStack background={'white !important'} p={'0.5rem'} className={styles.scroll} display={['flex', 'none', 'none']} overflow={'hidden'} overflowX={'auto'} w={['100%', '100%', null]}>
-                    <Badge fontSize={'0.9rem'} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                    <Badge fontSize={'0.9rem'} onClick={() => setOrders(false)} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
                         MY PROFILE
                     </Badge>
-                    <Badge fontSize={'0.9rem'} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                    <Badge fontSize={'0.9rem'} onClick={() => setOrders(true) bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
                         MY ORDERS
                     </Badge>
                     <Badge onClick={handleLogout} bgColor={'#e5f0da !important'} fontSize={'0.9rem'} variant='subtle' p={'0.5rem'} colorScheme='green'>
