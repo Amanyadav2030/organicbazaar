@@ -108,7 +108,7 @@ export default function Account() {
                     <Badge fontSize={'0.9rem'} onClick={() => setOrders(false)} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
                         MY PROFILE
                     </Badge>
-                    <Badge fontSize={'0.9rem'} onClick={() => setOrders(true) bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
+                    <Badge fontSize={'0.9rem'} onClick={() => setOrders(true)} bgColor={'#e5f0da !important'} variant='subtle' p={'0.5rem'} colorScheme='green'>
                         MY ORDERS
                     </Badge>
                     <Badge onClick={handleLogout} bgColor={'#e5f0da !important'} fontSize={'0.9rem'} variant='subtle' p={'0.5rem'} colorScheme='green'>

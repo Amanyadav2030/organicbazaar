@@ -98,8 +98,10 @@
     .editable div{
         display: flex;
         border: 1px solid transparent;
-        width: 100%;
         justify-content: space-between;
+    }
+    .right label{
+        font-size: 1rem;
     }
     .container{
         margin: 1rem auto;

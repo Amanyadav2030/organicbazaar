@@ -75,7 +75,8 @@
     align-items: center;
 }
 .continueBtn button{
-    padding: 28px !important;
+    padding: 28px 0 !important;
+    width: 30%;
     border: 1px solid transparent;
     font-weight: 700;
     border-radius: 7px;

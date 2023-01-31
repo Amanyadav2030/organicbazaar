@@ -1,7 +1,7 @@
 
 import {  GET_ORDER_SUCCESS, GET_ORDER_LOADING, GET_ORDER_ERROR} from "./Order.types";
 const initialState = {
-    loading:false,
+    loadingO:false,
     error:false,
     data: []
 };
@@ -12,13 +12,13 @@ export const orderReducer = (state = initialState, { type, payload }) => {
         case GET_ORDER_LOADING: {
             return {
                 ...state,
-                loading:true
+                loadingO:true
             }
         }
         case GET_ORDER_ERROR: {
             return {
                 ...state,
-                loading:false,
+                loadingO:false,
                 error:true
             }
         }
@@ -26,7 +26,7 @@ export const orderReducer = (state = initialState, { type, payload }) => {
             // console.log("inside CART REDUCER GET")
             return {
                 ...state,
-                loading:false,
+                loadingO:false,
                 error:false,
                 data:payload
             }

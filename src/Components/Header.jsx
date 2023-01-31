@@ -99,11 +99,12 @@ export default function Header() {
                                 emptyColor='gray.200'
                                 color='green.400'
                                 size='xl'
-                            /> : data?.map((el) => (
+                            /> : data.length ? data?.map((el) => (
                                 <>
                                     <CartCard stock={el.productId.stock} brand={el.productId.brand} Img={el.productId.Img} qty={el.quantity} realPrice={el.productId.realPrice} disPrice={el.productId.disPrice} key={el._id} id={el._id} data={el} />
                                 </>
-                            ))}
+                            )):<Image src={'https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90'} />
+                        }
                         </DrawerBody>
                         <DrawerFooter>
                             <Button disabled={data.length == 0} fontSize={['16px', '18px', '21px']} w={['95%', '91%', '91%']} h={['39px', '40px', '46px']} onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT  <span className={styles.total}>₹{total}.00</span></Button>
