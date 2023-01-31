@@ -30,7 +30,7 @@ export default function SkinCare() {
     const [sort, setSort] = useState('asc');
     useEffect(() => {
         dispatch(getProductAPI(sort, 'skin'));
-        console.log(data, loading)
+        // console.log(data, loading)
     }, [dispatch, sort]);
     const handleSort = (event) => {
         if (event.target.value == '') return;

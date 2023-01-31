@@ -6,7 +6,7 @@ import HairCare from './HairCare';
 import BodyCare from './BodyCare';
 import Perfumes from './Perfumes';
 import Combos from './Combos';
-import { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { reducer } from './reducer';
 import { funBodyCare, funCombos, funHairCare, funPerfumes, funSkinCare } from './Action';
 
@@ -25,12 +25,9 @@ const links = [
     { page: 'BODYCARE', link: '/bodycare' },
     { page: 'PERFUMES', link: '/perfumes' },
 ]
-export default function Navbar() {
+function Navbar() {
     const [state, dispatch] = useReducer(reducer, initState);
-    const redirect = useNavigate()
-    useEffect(() => {
-        console.clear();
-    }, [])
+    const redirect = useNavigate();
     return (
         <nav style={{
             position: "sticky",
@@ -93,7 +90,7 @@ export default function Navbar() {
             <HStack background={'white !important'} p={'0.5rem'} className={styles.scroll} display={['flex', 'none', 'none']} overflow={'hidden'} overflowX={'auto'} w={['100%', '100%', null]}>
                 {
                     links?.map((el) => (
-                        <Badge onClick={() => redirect(el.link)} fontSize={'0.9rem'} variant='subtle' p={'0.4rem'} colorScheme='green'>
+                        <Badge key={el.page} onClick={() => redirect(el.link)} fontSize={'0.9rem'} variant='subtle' p={'0.4rem'} colorScheme='green'>
                             {el.page}
                         </Badge>
                     ))
@@ -102,5 +99,4 @@ export default function Navbar() {
         </nav>
     )
 }
-
-// onMouseEnter={() => } onMouseLeave={() => }
+export default React.memo(Navbar);

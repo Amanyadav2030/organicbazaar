@@ -53,7 +53,7 @@ export default function Account() {
     useEffect(() => {
         setIsLoaded(false)
         getUserById(token).then((res) => {
-            setInfo(res.data);
+            setInfo({ ...res.data, contact: res.contact == null ? '' : res.contact });
             setIsLoaded(true)
         }).catch((err) => {
             setIsLoaded(true)

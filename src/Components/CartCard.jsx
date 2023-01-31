@@ -7,8 +7,7 @@ import { addCartAPI, deleteCartAPI } from '../store/cart/Cart.action';
 import styles from './Cart.module.css';
 const CartCard = ({ Img, realPrice, id, disPrice, qty, data, brand, stock }) => {
     const [quantity, setQuantity] = useState(qty);
-    const { isAuth, token } = useSelector((store) => store.authData)
-    const { loading, error } = useSelector((store) => store.cartData);
+    const { token } = useSelector((store) => store.authData)
     const dispatch = useDispatch();
     useEffect(() => {
         setQuantity(qty);

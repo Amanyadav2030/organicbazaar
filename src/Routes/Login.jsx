@@ -28,7 +28,7 @@ export default function Login() {
         email: '',
         password: ''
     });
-    console.log(isAuth)
+    // console.log(isAuth)
     const handleFocus = (event) => {
         event.target.placeholder = "";
     };

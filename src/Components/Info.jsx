@@ -11,7 +11,7 @@ export default function Info() {
     const [total, setTotal] = useState(0);
     useEffect(() => {
         dispatch(getCartAPI(token));
-        console.log(data, 'inside cart info')
+        // console.log(data, 'inside cart info')
     }, [dispatch])
     useEffect(() => {
         let totalAmount = data.reduce((prev, el) => prev + el.total, 0);

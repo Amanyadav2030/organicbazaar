@@ -1,4 +1,5 @@
 import { Box, useToast, Image, VStack, HStack, Text, Button } from "@chakra-ui/react";
+import { useCallback } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
@@ -9,13 +10,17 @@ import styles from "./Card.module.css";
 export default function Card(item) {
     const [hover, setHover] = useState(false);
     const { isAuth, token } = useSelector((store) => store.authData)
-    const { loading, error, data } = useSelector((store) => store.cartData);
+    const { data } = useSelector((store) => store.cartData);
     const dispatch = useDispatch();
+
     const toast = useToast()
     const redirect = useNavigate();
-    useEffect(() => {
+    // useEffect(() => {
+    //     dispatch(getCartAPI(token));
+    // }, [dispatch])
+    useCallback(() => {
         dispatch(getCartAPI(token));
-    }, [dispatch])
+    }, [dispatch]);
     const { Img, Hover, category, brand, disPrice, realPrice, rating, title, status, id } = item;
     const checkExist = (id) => {
         let filtered = data.filter((el) => id == el.productId._id);

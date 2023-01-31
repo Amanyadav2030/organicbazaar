@@ -11,7 +11,9 @@ import {
     Button,
     useDisclosure,
 } from '@chakra-ui/react'
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useCallback } from 'react';
+import { useMemo } from 'react';
 import { FaSearch, FaHeart, FaBars } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -20,26 +22,27 @@ import styles from './Cart.module.css';
 import CartCard from './CartCard';
 import MenuBar from './Navbar/menuBar';
 // import Counter from './Counter'; 
-export default function Header() {
+function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { isAuth, token } = useSelector((store) => store.authData);
-    const { loading, error, data } = useSelector((store) => store.cartData);
-
+    const { token } = useSelector((store) => store.authData);
+    const { loading, data } = useSelector((store) => store.cartData);
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    // const total = useRef(0);
     const [total, setTotal] = useState(0);
     const redirect = useNavigate();
     const handleOpen = () => {
         setOpen(!open);
     }
-    useEffect(() => {
+    useCallback(() => {
         dispatch(getCartAPI(token));
     }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getCartAPI(token));
+    // }, [dispatch])
+
     useEffect(() => {
         let updated = data.reduce((prev, el) => prev + el.total, 0);
         setTotal(updated)
-        // console.log(total);
     }, [data])
 
     const handleClick = () => {
@@ -100,11 +103,9 @@ export default function Header() {
                                 color='green.400'
                                 size='xl'
                             /> : data.length ? data?.map((el) => (
-                                <>
-                                    <CartCard stock={el.productId.stock} brand={el.productId.brand} Img={el.productId.Img} qty={el.quantity} realPrice={el.productId.realPrice} disPrice={el.productId.disPrice} key={el._id} id={el._id} data={el} />
-                                </>
-                            )):<Image src={'https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90'} />
-                        }
+                                <CartCard stock={el.productId.stock} brand={el.productId.brand} Img={el.productId.Img} qty={el.quantity} realPrice={el.productId.realPrice} disPrice={el.productId.disPrice} key={el._id} id={el._id} data={el} />
+                            )) : <Image src={'https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90'} />
+                            }
                         </DrawerBody>
                         <DrawerFooter>
                             <Button disabled={data.length == 0} fontSize={['16px', '18px', '21px']} w={['95%', '91%', '91%']} h={['39px', '40px', '46px']} onClick={() => redirect('/checkout')} className={styles.checkoutBtn}>CHECKOUT  <span className={styles.total}>₹{total}.00</span></Button>
@@ -115,3 +116,4 @@ export default function Header() {
         </header>
     )
 }
+export default Header;

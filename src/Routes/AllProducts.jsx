@@ -30,7 +30,6 @@ export default function AllProducts() {
     const [sort, setSort] = useState('asc');
     useEffect(() => {
         dispatch(getProductAPI(sort));
-        console.log(data, loading)
     }, [dispatch, sort]);
     const handleSort = (event) => {
         if (event.target.value == '') return;
@@ -62,7 +61,7 @@ export default function AllProducts() {
                     {`${data.length} products`}
                 </Text>
                 <HStack id="sort">
-                    <Select  onChange={handleSort}>
+                    <Select onChange={handleSort}>
                         <option value=""> Sort by price</option>
                         <option value="asc">Low to High</option>
                         <option value="desc">High to Low</option>

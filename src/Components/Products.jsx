@@ -1,7 +1,11 @@
 import styles from './Products.module.css';
 import { SimpleGrid } from '@chakra-ui/react'
 import Card from './Card';
+import { useEffect } from 'react';
 export default function Products({ data }) {
+    useEffect(() => {
+        console.clear();
+    }, [])
     return (
         <SimpleGrid className={styles.gridContainer} columns={[2, 2, 4]} spacing={['2px', '25px', '25px']}>
             {

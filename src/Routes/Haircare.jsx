@@ -30,7 +30,7 @@ export default function HairCare() {
     const [sort, setSort] = useState('asc');
     useEffect(() => {
         dispatch(getProductAPI(sort, 'hair'));
-        console.log(data, loading)
+        // console.log(data, loading)
     }, [dispatch, sort]);
     const handleSort = (event) => {
         if (event.target.value == '') return;

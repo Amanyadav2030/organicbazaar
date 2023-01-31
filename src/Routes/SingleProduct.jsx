@@ -37,7 +37,7 @@ export default function SingleProducts() {
 
     }, [quantity, count])
     const checkExist = (id) => {
-        console.log(id, data, '********')
+        // console.log(id, data, '********')
         let filtered = data.filter((el) => id == el.productId._id);
         return filtered.length == 0 ? false : true;
     }
@@ -78,7 +78,7 @@ export default function SingleProducts() {
         setCount(count + 1)
         setQuantity(data[0]['quantity']);
         setQuantity(quantity + value);
-        console.log((quantity + value) - (data.length != 0 ? data[0]['quantity'] : 1), 'quantity');
+        // console.log((quantity + value) - (data.length != 0 ? data[0]['quantity'] : 1), 'quantity');
         dispatch(addSingleCartAPI(token, {
             productId: id,
             quantity: (quantity + value) - (data.length != 0 ? data[0]['quantity'] : 1)

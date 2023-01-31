@@ -10,7 +10,6 @@ export default function Orders() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getOrderAPI(token));
-        console.log(data, 'inside cart orders')
     }, [dispatch]);
     const currentDate = useMemo(() => new Date(), []);
     return (

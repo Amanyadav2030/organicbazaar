@@ -20,7 +20,7 @@ export const getSingleCartAPI = (token,id) => async (dispatch) => {
           authorization: token
       }
   })
-    console.log(res.data,'inside  get single cart  action')
+    // console.log(res.data,'inside  get single cart  action')
     dispatch({ type: GET_SINGLE_CART_SUCCESS, payload: res.data })
     dispatch(getCartAPI(token))
   } catch (er) {

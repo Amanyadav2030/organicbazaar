@@ -31,7 +31,7 @@ export default function BodyCare() {
     const [sort, setSort] = useState('asc');
     useEffect(() => {
         dispatch(getProductAPI(sort, 'body'));
-        console.log(data, loading)
+        // console.log(data, loading)
     }, [dispatch, sort]);
     const handleSort = (event) => {
         if (event.target.value == '') return;
