@@ -1,0 +1,18 @@
+.download{
+    background:  #e5f0da;
+    position: relative;
+    margin-top: 20px;
+}
+.tagline{
+    width: 100%;
+    background: #475d4b;
+}
+.mobileImg{   
+    position: absolute;
+    transition: transform .5s ease;
+    z-index: 3;
+    cursor: pointer;
+}
+.mobileImg:hover{
+    transform: scale(1.05); 
+}

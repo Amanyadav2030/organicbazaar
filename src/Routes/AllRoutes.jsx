@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import Account from './Account';
-import Home from './Home';
-import Signup from './Signup';
-import Login from './Login';
-import PrivateRoute from '../Components/PrivateRoute';
-import SingleProduct from './SingleProduct';
-import AllProducts from './AllProducts';
-import Checkout from './Checkout';
-import Payment from './Payment';
-import Bestseller from './Bestseller';
-import SkinCare from './Skincare';
-import HairCare from './Haircare';
-import Perfume from './Perfumes';
-import BodyCare from './Bodycare';
+import Home from './Home/Home';
+import Signup from './Auth/Signup';
+import Login from './Auth/Login';
+import PrivateRoute from '../Components/Common/PrivateRoute';
+import SingleProduct from './SingleProduct/SingleProduct';
+import AllProducts from './AllProducts/AllProducts';
+import Checkout from './Checkout/Checkout';
+import Payment from './Payment/Payment';
+import Bestseller from './Bestseller/Bestseller';
+import SkinCare from './Skincare/Skincare';
+import HairCare from './Haircare/Haircare';
+import Perfume from './Perfumes/Perfumes';
+import BodyCare from './Bodycare/Bodycare';
 export default function AllRoutes() {
     return (
         <Routes>

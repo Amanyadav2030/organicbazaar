@@ -1,0 +1,29 @@
+
+.InfoContainer{
+    border: 1px solid transparent;
+    background-color: #fafafa;
+}
+.itemsBox{ 
+   border-bottom: 2px solid  gray;
+}
+.item{
+    border: 1px solid transparent;
+    position: relative;
+}
+.item img{
+    border-radius: 10px;
+}
+.brand{
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+.qty{
+    position: absolute;
+    border: 1px solid;
+    border-radius: 50%;
+    left: 63px;
+    padding: 1px 9px;
+    background: rgba(114,114,114,0.9);
+    color: white;
+    top: -12px;
+}

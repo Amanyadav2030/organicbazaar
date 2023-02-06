@@ -1,0 +1,71 @@
+.container{
+    border: 1px solid transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    border-radius: 10px;
+}
+.box{
+    overflow: hidden;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+.box img{
+    border: 1px solid transparent;
+     border-top-left-radius: 8px;
+     border-top-right-radius: 8px;
+     transition: transform .5s ease;
+     object-fit: cover;
+     cursor: pointer;
+ }
+ .box img:hover{
+     transform: scale(1.1); 
+ }
+ 
+ 
+.brand,.title{
+    line-height: 1.5rem;
+    cursor: pointer;
+} 
+.btn{
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.prices{
+    font-weight: 600;
+}
+.prices span{
+    text-decoration: line-through;
+    font-size: 16px;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 2px;
+    color: #475d4b;
+} 
+.rating svg{
+    width: 14px;
+    fill: #475d4b;
+}
+.bestseller{
+    width: 117px;
+    position: absolute;
+    
+    top: 2px;
+
+}
+
+@media only screen and (max-width: 600px) {
+   .container p{
+        margin-top: 0rem !important;
+    }
+    .prices span{
+        font-size: 14px;
+    }
+   }

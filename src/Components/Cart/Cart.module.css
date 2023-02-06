@@ -1,0 +1,116 @@
+.container{
+    border-bottom: 2px solid #d3d4d5;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #d3d4d5; 
+  }
+  
+.Image{
+    border-right: 1px solid #d3d4d5;
+}
+
+.prbox{
+    border: 1px solid transparent;
+    padding-top: 14px;
+}
+.prices{
+    border: 1px solid transparent;
+    font-size: 21px;
+    font-weight: 600;
+
+}
+.prices span{
+    text-decoration: line-through;
+    font-size: 19px;
+    margin-left: 6px;
+}
+.Box{
+    border: 1px solid transparent;
+}
+.cartName{
+  white-space: nowrap; 
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.count{
+    border: 1px solid;
+    width: 2rem;
+    font-size: 17px;
+    height: 100%;
+    background-color: #e5f0da;
+    cursor: text;
+}
+
+.addremoveBox svg{
+    width: 28px;
+    height: 23px;
+}
+.btn1{
+    border: 1px solid #475d4b;
+    width: 2rem;
+    height: 100%;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    font-size: 18px;
+    font-weight: 700;
+    color: gray;
+}
+.btn2{
+    color: gray;
+    border: 1px solid #475d4b;
+    width: 2rem;
+    font-size: 17px;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    font-weight: 700;
+    height: 100%;
+}
+.checkoutBtn{
+    background: #475d4b !important;
+    margin: auto;
+    /* height: 46px !important; */
+    border-radius: 5px !important;
+    color: #e5f0da;
+    font-weight: 600 !important;
+    position: relative;
+}
+.total{
+    font-size: 20px!important;
+    position: absolute;
+    right: 54px;
+    width: 61px;
+    display: flex;
+    gap: 15px;
+}
+.total::before{
+    content: "";
+    border: 0.5px solid;
+    background-color: #e5f0da;
+}
+/* Media query start from here */
+@media only screen and (max-width: 600px) {
+    .total{
+        font-size: 15px!important;
+        position: absolute;
+        right: 32px;
+        width: 45px;
+        display: flex;
+        gap: 10px;
+    }
+    .checkoutBtn{
+        margin: auto;
+        margin-bottom: 1.5rem;
+    }
+   }

@@ -1,0 +1,95 @@
+.header{
+    display: block;
+    padding-top: 10em;
+    padding-bottom: 2em;
+    background:  url('https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Checkout_Banner.png?v=16517100635') center center;
+    background-size: cover;
+}
+.header img{
+    width: 200px;
+    margin-left: 27px;
+}
+.container{
+    display: flex;
+    border: 1px solid transparent;
+    padding: 50px 4px;
+}
+.information{
+    border: 1px solid transparent;
+}
+.information h2{
+    font-size: 20px;
+}
+.information input{
+    border: 1px solid;
+   
+    padding: 13px 17px;
+
+    font-size: 16px;
+    width: 97%;
+    border-radius: 6px;
+}
+.information select{
+    border: 1px solid;
+    padding: 10px;
+    width: 97%;
+    border-radius: 6px;
+    padding: 13px 15px;
+    cursor: pointer;
+}
+
+.email{
+    border: 1px solid transparent;
+}
+.addressContainer{
+    border: 1px solid transparent;
+    /* display: flex;
+    flex-direction: column;
+    gap: 21px; */
+}
+.name{
+    width: 97%;
+    gap: 13px;
+    display: flex;
+    border: 1px solid transparent;
+}
+.city{
+    border: 1px solid transparent;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 11px 0px;
+    gap: 8px;
+}
+.checkbox input{
+    width: 33px;
+    height: 18px;
+
+}
+.continueBtn{
+    display: flex;
+    border: 1px solid transparent;
+    align-items: center;
+}
+.continueBtn button{
+    padding: 28px 0 !important;
+    width: 30%;
+    border: 1px solid transparent;
+    font-weight: 700;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #475d4b;
+    cursor: pointer;
+    color: white;
+}
+@media only screen and (max-width: 600px) {
+    .continueBtn button{
+        padding: 15px 0 !important;
+        width: 100%;
+    }
+
+    
+}

@@ -1,0 +1,148 @@
+.breadcrumb{
+    margin-top: 23px;
+    font-size: 20px;
+    width: 90%;
+    margin: 23px auto 0px auto;
+}
+.imgsection{
+        position: relative;
+}
+.infosection{
+    border: 1px solid transparent;
+}
+.bestseller{
+    width: 175px;
+    top: 10px;
+    left: 26px;
+    position: absolute;
+}
+.brand{
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.title{
+    letter-spacing: 0.5px;
+}
+.prbox{
+    display: flex;
+    border: 1px solid transparent;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+}
+.prices{
+    border: 1px solid transparent;
+    font-size: 21px;
+    font-weight: 600;
+
+}
+.prices span{
+    text-decoration: line-through;
+    font-size: 19px;
+    margin-left: 6px;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    gap: 2px;
+}
+.rating svg{
+    width: 19px;
+    fill: #475d4b;
+}
+.tax{
+    font-size: 13px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.btn1{
+    border: 1px solid #475d4b;
+    width: 2.3rem;
+    /* border-radius: 5px; */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 23px;
+    font-weight: 700;
+    color: gray;
+}
+.btn2{
+    color: gray;
+    border: 1px solid #475d4b;
+    width: 2.3rem;
+    font-size: 23px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: 700;
+}
+.count{
+    border: 1px solid;
+    width: 2.3rem;
+    font-size: 20px;
+    height: 37px;
+    background-color:  #e5f0da;
+    cursor: text;
+}
+.counter{
+    display: flex;
+}
+.cartbtn{
+    width: 100%;
+    background: #475d4b !important;
+    color: #e5f0da;
+    border: 1px solid transparent;
+    margin: 35px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.cartbtn:hover{
+    width: 100%;
+    background: #384a3b !important;
+    color: #e5f0da;
+    border: 1px solid transparent;
+    margin: 35px 0px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.offerLogo{
+    position: relative;
+    margin-left: 29px;
+    color: #475d4b;
+    font-size: 20px;
+    font-weight: 600;
+}
+.offerLogo::before{
+    content: '';
+    background-image: url(https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Offer-Icon-V1.png?v=1654771309);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: -25px;
+    background-size: 100%;
+    top: 7px;
+}
+.discountbox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.discount{
+    background-color: #e5f0da;
+    color: #475d4b;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.voucher{
+    border: 2px dashed #475d4b;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+.discountInfo{
+    font-size: 15px;
+    color: gray;
+    line-height: 19px;
+    margin-top: 5px;
+}

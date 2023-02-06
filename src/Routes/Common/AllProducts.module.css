@@ -1,0 +1,22 @@
+.products{
+    border: 1px solid transparent;
+    width: 80%;
+    padding: 5px;
+} 
+.container{
+    display: flex;
+}
+.breadcrumb{
+    margin-top: 23px;
+    font-size: 20px;
+    width: 90%;
+    margin: 23px auto 0px auto;
+}
+.loading{
+    font-size: 28px;
+    position: relative;
+    top: 8rem;
+    display: flex;
+    left: 23rem;
+    font-weight: 500;
+} 

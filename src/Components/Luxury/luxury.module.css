@@ -1,0 +1,17 @@
+.luxury{
+    display: flex;
+    padding:40px; 
+}
+.box{
+   overflow: hidden;
+}
+.image{
+    width: inherit;
+    height: inherit;
+    border-radius: 5px;
+    transition: transform .5s ease;
+    object-fit: cover;
+}
+.image:hover{
+    transform: scale(1.2); 
+}
