@@ -18,7 +18,7 @@ import { FaSearch, FaHeart, FaBars } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCartAPI } from '../../store/cart/Cart.action';
-import styles from '../Cart/Cart.module.css';
+import styles from '../Cart/Cart.module.css';                                                           
 import CartCard from '../Cart/CartCard';
 import MenuBar from '../Navbar/menuBar';
 // import Counter from './Counter'; 

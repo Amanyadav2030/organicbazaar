@@ -26,8 +26,8 @@ export default function Footer() {
                 <VStack align={'start'} >
                     <div className='FooterHead'>CONTACT US</div>
                     <Text>Office Location: Plot no. 417, Udyog Vihar Phase III, Gurgaon,Haryana,India</Text>
-                    <Text>shop@bellavitaorganic.com</Text>
-                    <Text>+91 9311732440</Text>
+                    <Text>shop@organicbazaar.com</Text>
+                    <Text>+91 9165148159</Text>
                     <Text>Timing:9:00 Am To 9:00 PM, Monday to Sunday</Text>
                 </VStack>
                 <VStack align={'start'} display={['none', 'flex', 'flex']} >
